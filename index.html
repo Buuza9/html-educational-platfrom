@@ -1,0 +1,2177 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>تعلّم HTML — منصة تفاعلية للمبتدئين</title>
+
+        <!-- Google Fonts: Reem Kufi (display) + Tajawal (body) for refined Arabic typography -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;600;700&family=Tajawal:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <!-- ===================== TOP NAV BAR ===================== -->
+        <header class="topbar">
+            <button class="icon-btn" id="menuToggle" aria-label="فتح القائمة">
+                <svg
+                    viewBox="0 0 24 24"
+                    width="22"
+                    height="22"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <line x1="4" y1="7" x2="20" y2="7" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <line x1="4" y1="17" x2="20" y2="17" />
+                </svg>
+            </button>
+
+            <div class="brand">
+                <div class="brand-mark">&lt;/&gt;</div>
+                <div class="brand-text">
+                    <h1>تعلّم HTML</h1>
+                    <span>منصة تفاعلية للمبتدئين</span>
+                </div>
+            </div>
+
+            <div class="topbar-tools">
+                <div class="search-wrap">
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <circle cx="11" cy="11" r="7" />
+                        <line x1="20" y1="20" x2="16.65" y2="16.65" />
+                    </svg>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="ابحث في الدروس..."
+                    />
+                </div>
+                <button
+                    class="icon-btn"
+                    id="themeToggle"
+                    aria-label="تبديل الوضع"
+                >
+                    <svg
+                        id="themeIcon"
+                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path
+                            d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                        />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Reading progress bar -->
+        <div class="progress-bar"
+            ><div class="progress-fill" id="progressFill"></div
+        ></div>
+
+        <!-- ===================== LAYOUT ===================== -->
+        <div class="layout">
+            <!-- ============ SIDEBAR ============ -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-head">
+                    <span class="sidebar-label">المحتوى</span>
+                    <span class="sidebar-count" id="lessonCount">10 دروس + امتحان</span>
+                </div>
+
+                <nav class="sidebar-nav" id="sidebarNav">
+                    <a href="#intro" class="nav-link" data-target="intro"
+                        ><span class="nav-num">01</span
+                        ><span>مقدمة عن HTML</span></a
+                    >
+                    <a
+                        href="#structure"
+                        class="nav-link"
+                        data-target="structure"
+                        ><span class="nav-num">02</span
+                        ><span>هيكل الصفحة</span></a
+                    >
+                    <a href="#text" class="nav-link" data-target="text"
+                        ><span class="nav-num">03</span><span>النصوص</span></a
+                    >
+                    <a href="#links" class="nav-link" data-target="links"
+                        ><span class="nav-num">04</span
+                        ><span>الروابط (Hyperlinks)</span></a
+                    >
+                    <a href="#lists" class="nav-link" data-target="lists"
+                        ><span class="nav-num">05</span
+                        ><span>القوائم (Lists)</span></a
+                    >
+                    <a href="#tables" class="nav-link" data-target="tables"
+                        ><span class="nav-num">06</span
+                        ><span>الجداول (Tables)</span></a
+                    >
+                    <a href="#forms" class="nav-link" data-target="forms"
+                        ><span class="nav-num">07</span><span>النماذج</span></a
+                    >
+                    <a href="#media" class="nav-link" data-target="media"
+                        ><span class="nav-num">08</span><span>الوسائط</span></a
+                    >
+                    <a href="#semantic" class="nav-link" data-target="semantic"
+                        ><span class="nav-num">09</span
+                        ><span>Semantic HTML</span></a
+                    >
+                    <a href="#best" class="nav-link" data-target="best"
+                        ><span class="nav-num">10</span
+                        ><span>Best Practices</span></a
+                    >
+                    <a href="#exam" class="nav-link nav-exam" data-target="exam"
+                        ><span class="nav-num">★</span
+                        ><span>الامتحان الشامل</span></a
+                    >
+                </nav>
+
+                <div class="sidebar-foot">
+                    <div class="progress-card">
+                        <div class="progress-card-top">
+                            <span>تقدمك</span>
+                            <span id="progressPct">0%</span>
+                        </div>
+                        <div class="progress-card-bar"
+                            ><div id="progressCardFill"></div
+                        ></div>
+                        <p>تابع القراءة لإكمال المنهج</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Mobile overlay -->
+            <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+            <!-- ============ MAIN CONTENT ============ -->
+            <main class="content">
+                <!-- ===== HERO ===== -->
+                <section class="hero">
+                    <div class="hero-tag">دليل عربي شامل</div>
+                    <h2 class="hero-title"
+                        >تعلّم <span class="accent">HTML</span> من الصفر<br />وجهّز
+                        نفسك للامتحان</h2
+                    >
+                    <p class="hero-sub">
+                        منصة تعليمية بسيطة وواضحة باللغة العربية، تشرح أساسيات
+                        HTML خطوة بخطوة مع أمثلة عملية، محرر كود مباشر،
+                        واختبارات قصيرة بعد كل درس.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat"
+                            ><strong>10</strong><span>دروس</span></div
+                        >
+                        <div class="stat"
+                            ><strong>+30</strong><span>مثال</span></div
+                        >
+                        <div class="stat"
+                            ><strong>+40</strong><span>سؤال</span></div
+                        >
+                        <div class="stat"
+                            ><strong>1</strong><span>امتحان شامل</span></div
+                        >
+                    </div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 01: مقدمة عن HTML                                         -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="intro" data-title="مقدمة عن HTML">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 01</div>
+                        <h2>مقدمة عن HTML</h2>
+                        <p class="lesson-lead"
+                            >ما هي لغة HTML؟ ولماذا نستخدمها لبناء صفحات
+                            الويب؟</p
+                        >
+                    </header>
+
+                    <div class="block">
+                        <h3>تعريف بسيط</h3>
+                        <p>
+                            <strong>HTML</strong> اختصار لـ
+                            <em>HyperText Markup Language</em>، وهي لغة
+                            <strong>توصيف</strong> (وليست لغة برمجة) تُستخدم
+                            لبناء هيكل صفحات الويب. بمعنى آخر: نستخدم HTML لنقول
+                            للمتصفح "هذا عنوان"، "هذه فقرة"، "هذه صورة"، "هذا
+                            رابط".
+                        </p>
+                        <p>
+                            كل صفحة تفتحها على الإنترنت — مثل Google أو YouTube
+                            — مبنيّة باستخدام HTML كأساس.
+                        </p>
+                    </div>
+
+                    <div class="block">
+                        <h3>لماذا نستخدم HTML؟</h3>
+                        <ul class="bullet">
+                            <li
+                                >لبناء هيكل الصفحة وتنظيم محتواها (نصوص، صور،
+                                روابط، جداول...).</li
+                            >
+                            <li
+                                >لأنها <strong>اللغة الأساسية</strong> للويب،
+                                وكل المتصفحات تفهمها مباشرة.</li
+                            >
+                            <li
+                                >سهلة التعلم وتُعتبر أول خطوة في طريق تعلم تطوير
+                                الويب.</li
+                            >
+                            <li
+                                >تعمل مع <strong>CSS</strong> (للتنسيق) و<strong
+                                    >JavaScript</strong
+                                >
+                                (للتفاعل).</li
+                            >
+                        </ul>
+                    </div>
+
+                    <div class="block">
+                        <h3>ما هو "التاج" (Tag)؟</h3>
+                        <p>
+                            عناصر HTML تُكتب على شكل
+                            <strong>تاجات (Tags)</strong> محاطة بعلامتي أصغر
+                            وأكبر <code>&lt; &gt;</code>. معظم التاجات تأتي بشكل
+                            زوجي: تاج فتح وتاج إغلاق.
+                        </p>
+                        <pre
+                            class="codeblock"
+                        ><code>&lt;p&gt;هذه فقرة نصية&lt;/p&gt;</code></pre>
+                        <p>
+                            هنا <code>&lt;p&gt;</code> هو تاج الفتح، و<code
+                                >&lt;/p&gt;</code
+                            >
+                            هو تاج الإغلاق، والنص بينهما هو محتوى العنصر.
+                        </p>
+                    </div>
+
+                    <!-- Interactive editor -->
+                    <div
+                        class="editor"
+                        data-default="&lt;h1&gt;مرحباً بالعالم&lt;/h1&gt;
+&lt;p&gt;هذه أول صفحة HTML أكتبها.&lt;/p&gt;"
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — جرّب بنفسك</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li
+                                >HTML ليست لغة برمجة، بل لغة
+                                <strong>توصيف</strong> (Markup).</li
+                            >
+                            <li
+                                >كل ملف HTML يبدأ غالباً بـ
+                                <code>&lt;!DOCTYPE html&gt;</code>.</li
+                            >
+                            <li
+                                >تكتب التاجات بأحرف صغيرة (مع أنها لا تفرّق بين
+                                الحالتين).</li
+                            >
+                        </ul>
+                    </div>
+
+                    <!-- Quiz -->
+                    <div class="quiz" data-quiz="intro"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 02: هيكل الصفحة                                            -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="structure" data-title="هيكل الصفحة">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 02</div>
+                        <h2>هيكل الصفحة الأساسي</h2>
+                        <p class="lesson-lead"
+                            >التعرّف على التاجات الأساسية:
+                            <code>&lt;html&gt;</code>,
+                            <code>&lt;head&gt;</code>,
+                            <code>&lt;title&gt;</code>,
+                            <code>&lt;body&gt;</code>.</p
+                        >
+                    </header>
+
+                    <div class="block">
+                        <h3>الهيكل العام لأي صفحة HTML</h3>
+                        <p
+                            >أي صفحة HTML احترافية تتكوّن من نفس الهيكل العام
+                            التالي:</p
+                        >
+                        <pre class="codeblock"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;عنوان الصفحة&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- محتوى الصفحة هنا --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+
+                    <!-- Tag breakdown cards -->
+                    <div class="tag-grid">
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;head&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يحتوي على
+                                <strong>معلومات عن الصفحة</strong> ولا تظهر
+                                للمستخدم مباشرة، مثل العنوان والروابط الخارجية
+                                وملفات التنسيق.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> دائماً — في كل
+                                صفحة HTML، يأتي قبل
+                                <code>&lt;body&gt;</code>.</div
+                            >
+                            <pre class="codeblock small"><code>&lt;head&gt;
+  &lt;title&gt;صفحتي&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;title&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يحدّد <strong>عنوان الصفحة</strong> الذي يظهر
+                                في تبويب المتصفح وفي نتائج البحث في Google.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> داخل
+                                <code>&lt;head&gt;</code>، مرة واحدة لكل
+                                صفحة.</div
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>&lt;title&gt;متجر الكتب&lt;/title&gt;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;body&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يحتوي على
+                                <strong>المحتوى الظاهر</strong> للمستخدم:
+                                النصوص، الصور، الأزرار، الروابط، وكل ما تراه في
+                                الصفحة.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> في كل صفحة، يأتي
+                                بعد <code>&lt;head&gt;</code>.</div
+                            >
+                            <pre class="codeblock small"><code>&lt;body&gt;
+  &lt;h1&gt;مرحباً&lt;/h1&gt;
+&lt;/body&gt;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;html&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >العنصر <strong>الجذري</strong> الذي يحتوي كل
+                                عناصر الصفحة. يأتي بعد
+                                <code>&lt;!DOCTYPE html&gt;</code> مباشرة.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> دائماً، مرة واحدة
+                                كحاوية أساسية للصفحة.</div
+                            >
+                            <pre class="codeblock small"><code>&lt;html&gt;
+  &lt;head&gt;...&lt;/head&gt;
+  &lt;body&gt;...&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </article>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;صفحتي الأولى&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;أهلاً وسهلاً&lt;/h1&gt;
+    &lt;p&gt;انظر إلى تبويب المتصفح بالأعلى لترى عنوان الصفحة.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;"
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — هيكل صفحة كامل</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li
+                                ><code>&lt;head&gt;</code> لا يظهر للمستخدم،
+                                بينما <code>&lt;body&gt;</code> يظهر.</li
+                            >
+                            <li
+                                ><code>&lt;title&gt;</code> يجب أن يكون داخل
+                                <code>&lt;head&gt;</code>.</li
+                            >
+                            <li
+                                >كل صفحة لها <code>&lt;body&gt;</code> واحد
+                                فقط.</li
+                            >
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="structure"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 03: النصوص                                                 -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="text" data-title="النصوص">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 03</div>
+                        <h2>التعامل مع النصوص</h2>
+                        <p class="lesson-lead"
+                            >تاجات النصوص الأساسية: <code>&lt;p&gt;</code>,
+                            <code>&lt;br&gt;</code>, <code>&lt;i&gt;</code>,
+                            <code>&lt;u&gt;</code>, والعناوين
+                            <code>&lt;h1&gt;</code> إلى
+                            <code>&lt;h6&gt;</code>.</p
+                        >
+                    </header>
+
+                    <div class="block">
+                        <h3>العناوين (Headings)</h3>
+                        <p>
+                            في HTML لدينا <strong>ستة مستويات</strong> من
+                            العناوين، من <code>&lt;h1&gt;</code> (الأكبر والأهم)
+                            إلى <code>&lt;h6&gt;</code> (الأصغر).
+                        </p>
+                        <pre
+                            class="codeblock"
+                        ><code>&lt;h1&gt;عنوان رئيسي&lt;/h1&gt;
+&lt;h2&gt;عنوان فرعي&lt;/h2&gt;
+&lt;h3&gt;عنوان أصغر&lt;/h3&gt;</code></pre>
+                    </div>
+
+                    <div class="tag-grid">
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;p&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يُستخدم لكتابة <strong>فقرة نصية</strong>. كل
+                                <code>&lt;p&gt;</code> يأتي في سطر جديد ويترك
+                                مسافة قبله وبعده.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> لأي نص عادي على
+                                شكل فقرة.</div
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>&lt;p&gt;أحب تعلّم البرمجة.&lt;/p&gt;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;br&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يُستخدم
+                                <strong>للنزول إلى سطر جديد</strong> داخل النص.
+                                تاج <em>مفرد</em> (لا يحتاج إغلاق).</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> عند الحاجة إلى
+                                كسر السطر داخل فقرة (مثل العناوين البريدية أو
+                                الشعر).</div
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>السطر الأول&lt;br&gt;السطر الثاني</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;i&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يجعل النص <strong>مائلاً (Italic)</strong>.
+                                غالباً يُستخدم لإبراز كلمة أجنبية أو مصطلح.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> للتمييز البصري
+                                للنص دون تغيير معناه.</div
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>كلمة &lt;i&gt;مائلة&lt;/i&gt; هنا</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;u&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يضع
+                                <strong>خطاً تحت النص (Underline)</strong>.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> لإبراز كلمة بالخط
+                                السفلي. (تجنّب استخدامه على نصوص ليست روابط
+                                لتفادي التشويش.)</div
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>كلمة &lt;u&gt;مهمة&lt;/u&gt; جداً</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;b&gt;</code> /
+                                <code class="tag">&lt;strong&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يجعل النص <strong>غامقاً (Bold)</strong>.
+                                الفرق: <code>&lt;strong&gt;</code> يدل على أهمية
+                                النص دلالياً.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> لتمييز كلمة مهمة
+                                في الجملة.</div
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>هذا &lt;b&gt;مهم&lt;/b&gt; جداً</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;hr&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يرسم <strong>خطاً أفقياً</strong> فاصلاً. تاج
+                                مفرد بدون إغلاق.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> للفصل بين أقسام
+                                مختلفة في الصفحة.</div
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>قسم 1&lt;hr&gt;قسم 2</code></pre>
+                        </article>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default="&lt;h1&gt;عنوان رئيسي&lt;/h1&gt;
+&lt;h2&gt;عنوان فرعي&lt;/h2&gt;
+
+&lt;p&gt;هذه فقرة عادية فيها كلمة &lt;b&gt;غامقة&lt;/b&gt;، 
+وكلمة &lt;i&gt;مائلة&lt;/i&gt;، وكلمة &lt;u&gt;تحتها خط&lt;/u&gt;.&lt;/p&gt;
+
+&lt;p&gt;السطر الأول&lt;br&gt;السطر الثاني بعد كسر السطر&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;فقرة جديدة بعد الفاصل.&lt;/p&gt;"
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — تنسيق النصوص</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li
+                                ><code>&lt;br&gt;</code> تاج
+                                <strong>مفرد</strong> ولا يحتاج إغلاق.</li
+                            >
+                            <li
+                                >لا يجوز استخدام أكثر من
+                                <code>&lt;h1&gt;</code> واحد للصفحة بشكل
+                                عام.</li
+                            >
+                            <li
+                                ><code>&lt;i&gt;</code> = مائل،
+                                <code>&lt;u&gt;</code> = تحته خط،
+                                <code>&lt;b&gt;</code> = غامق.</li
+                            >
+                            <li
+                                >المسافات الزائدة وأسطر الفراغ في الكود لا تظهر
+                                في المتصفح — استخدم <code>&lt;br&gt;</code> أو
+                                <code>&lt;p&gt;</code>.</li
+                            >
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="text"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 04: الروابط Hyperlinks                                     -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="links" data-title="الروابط">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 04</div>
+                        <h2>الروابط (Hyperlinks)</h2>
+                        <p class="lesson-lead"
+                            >شرح كامل لتاج <code>&lt;a&gt;</code> وأنواع الروابط
+                            وخصائصها.</p
+                        >
+                    </header>
+
+                    <div class="block">
+                        <h3>ما هو الرابط؟</h3>
+                        <p>
+                            <strong>الرابط (Hyperlink)</strong> هو نص أو صورة
+                            يمكن النقر عليها للانتقال إلى صفحة أخرى، أو إلى ملف،
+                            أو إلى موقع آخر على الإنترنت. نستخدم له تاج
+                            <code>&lt;a&gt;</code> (اختصاراً لكلمة
+                            <em>anchor</em>).
+                        </p>
+
+                        <pre
+                            class="codeblock"
+                        ><code>&lt;a href="https://google.com"&gt;اذهب إلى Google&lt;/a&gt;</code></pre>
+                    </div>
+
+                    <div class="block">
+                        <h3>الخصائص (Attributes) المهمة</h3>
+
+                        <div class="attr-table">
+                            <div class="attr-row attr-head">
+                                <div>الخاصية</div><div>الوصف</div
+                                ><div>مثال</div>
+                            </div>
+                            <div class="attr-row">
+                                <div><code>href</code></div>
+                                <div
+                                    >تحدد <strong>وجهة الرابط</strong> (إلى أين
+                                    سننتقل عند الضغط).</div
+                                >
+                                <div><code>href="page.html"</code></div>
+                            </div>
+                            <div class="attr-row">
+                                <div><code>target</code></div>
+                                <div
+                                    >تحدد <strong>طريقة فتح الرابط</strong>: نفس
+                                    النافذة أم نافذة جديدة.</div
+                                >
+                                <div><code>target="_blank"</code></div>
+                            </div>
+                            <div class="attr-row">
+                                <div><code>title</code></div>
+                                <div
+                                    >نص يظهر عند تمرير الفأرة فوق الرابط
+                                    (Tooltip).</div
+                                >
+                                <div><code>title="موقع جوجل"</code></div>
+                            </div>
+                        </div>
+
+                        <p style="margin-top: 1rem">
+                            قيم خاصية <code>target</code> الشائعة:
+                        </p>
+                        <ul class="bullet">
+                            <li
+                                ><code>_self</code> — يفتح الرابط في
+                                <strong>نفس النافذة</strong> (الافتراضي).</li
+                            >
+                            <li
+                                ><code>_blank</code> — يفتح الرابط في
+                                <strong>نافذة/تبويب جديد</strong>.</li
+                            >
+                        </ul>
+                    </div>
+
+                    <div class="block">
+                        <h3>أنواع الروابط</h3>
+                        <div class="types-grid">
+                            <div class="type-card">
+                                <div class="type-num">1</div>
+                                <h4>رابط خارجي</h4>
+                                <p
+                                    >ينقلك إلى موقع آخر على الإنترنت. يبدأ بـ
+                                    <code>http://</code> أو
+                                    <code>https://</code>.</p
+                                >
+                                <pre
+                                    class="codeblock small"
+                                ><code>&lt;a href="https://youtube.com"&gt;
+  يوتيوب
+&lt;/a&gt;</code></pre>
+                            </div>
+
+                            <div class="type-card">
+                                <div class="type-num">2</div>
+                                <h4>رابط داخلي</h4>
+                                <p
+                                    >ينقلك إلى
+                                    <strong>صفحة أخرى داخل نفس الموقع</strong>.
+                                    تكتب اسم الملف فقط.</p
+                                >
+                                <pre
+                                    class="codeblock small"
+                                ><code>&lt;a href="about.html"&gt;
+  من نحن
+&lt;/a&gt;</code></pre>
+                            </div>
+
+                            <div class="type-card">
+                                <div class="type-num">3</div>
+                                <h4>رابط لملف</h4>
+                                <p
+                                    >ينزّل ملفاً عند الضغط (مثل PDF أو صورة).
+                                    يكفي وضع مسار الملف في <code>href</code>.</p
+                                >
+                                <pre
+                                    class="codeblock small"
+                                ><code>&lt;a href="cv.pdf"&gt;
+  تحميل السيرة الذاتية
+&lt;/a&gt;</code></pre>
+                            </div>
+
+                            <div class="type-card">
+                                <div class="type-num">4</div>
+                                <h4>رابط داخل نفس الصفحة</h4>
+                                <p
+                                    >ينقلك إلى قسم محدد من الصفحة عبر
+                                    <code>id</code>.</p
+                                >
+                                <pre
+                                    class="codeblock small"
+                                ><code>&lt;a href="#contact"&gt;
+  اتصل بنا
+&lt;/a&gt;</code></pre>
+                            </div>
+
+                            <div class="type-card">
+                                <div class="type-num">5</div>
+                                <h4>رابط بريد إلكتروني</h4>
+                                <p
+                                    >يفتح برنامج البريد. نستخدم
+                                    <code>mailto:</code>.</p
+                                >
+                                <pre
+                                    class="codeblock small"
+                                ><code>&lt;a href="mailto:a@b.com"&gt;
+  راسلني
+&lt;/a&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default='&lt;h2&gt;أنواع الروابط&lt;/h2&gt;
+
+&lt;p&gt;
+  &lt;a href="https://google.com" target="_blank"&gt;
+    رابط خارجي إلى Google (نافذة جديدة)
+  &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;a href="contact.html"&gt;رابط داخلي إلى صفحة اتصل بنا&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;a href="cv.pdf"&gt;رابط لتحميل ملف PDF&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;a href="mailto:hello@site.com"&gt;راسلنا&lt;/a&gt;
+&lt;/p&gt;'
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — أنواع الروابط</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li
+                                >تاج الرابط هو <code>&lt;a&gt;</code> — أي وجهة
+                                دون <code>href</code> لن تعمل.</li
+                            >
+                            <li
+                                ><code>target="_blank"</code> يفتح
+                                <strong>نافذة جديدة</strong>.</li
+                            >
+                            <li
+                                >الفرق بين الرابط الداخلي والخارجي: الخارجي يبدأ
+                                بـ <code>http://</code>، الداخلي يستخدم اسم
+                                الملف فقط.</li
+                            >
+                            <li
+                                >أخطاء شائعة: نسيان وضع علامتي التنصيص حول قيمة
+                                <code>href</code>، أو نسيان إغلاق التاج
+                                <code>&lt;/a&gt;</code>.</li
+                            >
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="links"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 05: القوائم                                                -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="lists" data-title="القوائم">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 05</div>
+                        <h2>القوائم (Lists)</h2>
+                        <p class="lesson-lead"
+                            >القوائم المرتبة وغير المرتبة:
+                            <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>,
+                            <code>&lt;li&gt;</code>.</p
+                        >
+                    </header>
+
+                    <div class="block">
+                        <h3>أنواع القوائم في HTML</h3>
+                        <p
+                            >القوائم تساعدنا في تنظيم المعلومات على شكل بنود.
+                            لدينا نوعان أساسيان:</p
+                        >
+                        <ul class="bullet">
+                            <li
+                                ><strong>قائمة غير مرتبة</strong> (Unordered
+                                List) — بنود بنقاط <code>•</code>.</li
+                            >
+                            <li
+                                ><strong>قائمة مرتبة</strong> (Ordered List) —
+                                بنود مرقمة 1, 2, 3...</li
+                            >
+                        </ul>
+                    </div>
+
+                    <div class="tag-grid">
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;ul&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >قائمة <strong>غير مرتبة</strong> (Unordered) —
+                                كل بند يبدأ بنقطة.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمها؟</strong> عندما لا يهم
+                                ترتيب البنود (مثل قائمة هوايات).</div
+                            >
+                            <pre class="codeblock small"><code>&lt;ul&gt;
+  &lt;li&gt;تفاح&lt;/li&gt;
+  &lt;li&gt;موز&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;ol&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >قائمة <strong>مرتبة</strong> (Ordered) — كل بند
+                                يأخذ رقماً تلقائياً.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمها؟</strong> عندما يهم
+                                الترتيب (مثل خطوات وصفة طبخ).</div
+                            >
+                            <pre class="codeblock small"><code>&lt;ol&gt;
+  &lt;li&gt;اغسل التفاح&lt;/li&gt;
+  &lt;li&gt;قطّعه&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;li&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يمثّل
+                                <strong>عنصراً واحداً (List Item)</strong> داخل
+                                القائمة. يُستخدم داخل <code>&lt;ul&gt;</code> أو
+                                <code>&lt;ol&gt;</code>.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> لكل بند داخل أي
+                                قائمة.</div
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>&lt;li&gt;بند واحد&lt;/li&gt;</code></pre>
+                        </article>
+                    </div>
+
+                    <div class="block">
+                        <h3
+                            >الفرق بين <code>&lt;ul&gt;</code> و
+                            <code>&lt;ol&gt;</code></h3
+                        >
+                        <div class="compare">
+                            <div class="compare-col">
+                                <h4>&lt;ul&gt; — غير مرتبة</h4>
+                                <ul>
+                                    <li>قهوة</li>
+                                    <li>شاي</li>
+                                    <li>عصير</li>
+                                </ul>
+                                <p class="compare-note">البنود تظهر بنقاط •</p>
+                            </div>
+                            <div class="compare-col">
+                                <h4>&lt;ol&gt; — مرتبة</h4>
+                                <ol>
+                                    <li>قهوة</li>
+                                    <li>شاي</li>
+                                    <li>عصير</li>
+                                </ol>
+                                <p class="compare-note"
+                                    >البنود تظهر بأرقام 1, 2, 3</p
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default="&lt;h3&gt;قائمة هواياتي:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;القراءة&lt;/li&gt;
+  &lt;li&gt;البرمجة&lt;/li&gt;
+  &lt;li&gt;السباحة&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;خطوات تعلّم HTML:&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;افهم الهيكل الأساسي&lt;/li&gt;
+  &lt;li&gt;تعلّم النصوص والروابط&lt;/li&gt;
+  &lt;li&gt;طبّق على الجداول والنماذج&lt;/li&gt;
+&lt;/ol&gt;"
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — القوائم</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li
+                                >كل بند في القائمة يجب أن يكون داخل
+                                <code>&lt;li&gt;</code>.</li
+                            >
+                            <li
+                                >يمكنك وضع قائمة
+                                <strong>داخل قائمة</strong> أخرى (Nested
+                                Lists).</li
+                            >
+                            <li
+                                ><code>ul</code> = unordered (نقاط)،
+                                <code>ol</code> = ordered (أرقام)،
+                                <code>li</code> = list item.</li
+                            >
+                            <li
+                                >خطأ شائع: نسيان <code>&lt;li&gt;</code> ووضع
+                                النص مباشرة داخل <code>&lt;ul&gt;</code>.</li
+                            >
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="lists"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 06: الجداول                                                -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="tables" data-title="الجداول">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 06</div>
+                        <h2
+                            >الجداول (Tables)
+                            <span class="badge-hot">مهم جداً للامتحان</span></h2
+                        >
+                        <p class="lesson-lead"
+                            >شرح كامل لـ <code>&lt;table&gt;</code>,
+                            <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>,
+                            <code>&lt;th&gt;</code> + خاصيتي
+                            <code>rowspan</code> و <code>colspan</code>.</p
+                        >
+                    </header>
+
+                    <div class="block">
+                        <h3>الجدول في HTML</h3>
+                        <p>
+                            الجدول مكوّن من <strong>صفوف</strong> (Rows)
+                            و<strong>خلايا</strong> (Cells). كل خلية تنتمي إلى
+                            صف، وكل صف يحتوي على عدّة خلايا.
+                        </p>
+                    </div>
+
+                    <div class="tag-grid">
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;table&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يُحدّد <strong>الجدول</strong> ككل، وهو الحاوية
+                                الأساسية.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> لعرض البيانات في
+                                صفوف وأعمدة.</div
+                            >
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;tr&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >Table Row — يُمثّل
+                                <strong>صفّاً واحداً</strong> داخل الجدول.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> لكل صف أفقي.</div
+                            >
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;th&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >Table Header —
+                                <strong>خلية عنوان</strong> (تظهر غامقة وفي
+                                المنتصف).</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> لعناوين الأعمدة
+                                في الصف الأول عادة.</div
+                            >
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;td&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >Table Data —
+                                <strong>خلية بيانات عادية</strong>.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> لمحتوى الجدول
+                                الفعلي (الأرقام، الأسماء، إلخ).</div
+                            >
+                        </article>
+                    </div>
+
+                    <div class="block">
+                        <h3>مثال جدول بسيط</h3>
+                        <pre class="codeblock"><code>&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;الاسم&lt;/th&gt;
+    &lt;th&gt;العمر&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;أحمد&lt;/td&gt;
+    &lt;td&gt;25&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;سارة&lt;/td&gt;
+    &lt;td&gt;22&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+                        <div class="visual-table">
+                            <table>
+                                <tr><th>الاسم</th><th>العمر</th></tr>
+                                <tr><td>أحمد</td><td>25</td></tr>
+                                <tr><td>سارة</td><td>22</td></tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Rowspan & Colspan -->
+                    <div class="block highlight-block">
+                        <h3
+                            >🔥 دمج الخلايا: <code>colspan</code> و
+                            <code>rowspan</code></h3
+                        >
+                        <p>
+                            هاتان خاصيتان مهمّتان جداً تُستخدمان لـ<strong
+                                >دمج خلايا</strong
+                            >
+                            الجدول.
+                        </p>
+
+                        <div class="merge-grid">
+                            <div class="merge-card">
+                                <h4
+                                    ><code>colspan</code> — دمج عمودين أو
+                                    أكثر</h4
+                                >
+                                <p
+                                    >تُستخدم لجعل خلية تمتد
+                                    <strong>أفقياً</strong> عبر عدة أعمدة.</p
+                                >
+                                <pre class="codeblock small"><code>&lt;tr&gt;
+  &lt;td colspan="2"&gt;خلية ممتدة&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+                                <div class="visual-table">
+                                    <table>
+                                        <tr><th>المادة</th><th>الدرجة</th></tr>
+                                        <tr
+                                            ><td
+                                                colspan="2"
+                                                style="
+                                                    text-align: center;
+                                                    background: #fff7e6;
+                                                "
+                                                >المجموع: 95</td
+                                            ></tr
+                                        >
+                                        <tr><td>رياضيات</td><td>50</td></tr>
+                                        <tr><td>علوم</td><td>45</td></tr>
+                                    </table>
+                                </div>
+                                <p class="compare-note"
+                                    >لاحظ كيف "المجموع" يمتد على عمودين.</p
+                                >
+                            </div>
+
+                            <div class="merge-card">
+                                <h4
+                                    ><code>rowspan</code> — دمج صفّين أو
+                                    أكثر</h4
+                                >
+                                <p
+                                    >تُستخدم لجعل خلية تمتد
+                                    <strong>عمودياً</strong> عبر عدة صفوف.</p
+                                >
+                                <pre class="codeblock small"><code>&lt;tr&gt;
+  &lt;td rowspan="2"&gt;خلية ممتدة&lt;/td&gt;
+  &lt;td&gt;A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;B&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+                                <div class="visual-table">
+                                    <table>
+                                        <tr
+                                            ><th>الصف</th><th>المادة</th
+                                            ><th>المعلم</th></tr
+                                        >
+                                        <tr
+                                            ><td
+                                                rowspan="2"
+                                                style="background: #fff7e6"
+                                                >العاشر</td
+                                            ><td>رياضيات</td
+                                            ><td>أ. أحمد</td></tr
+                                        >
+                                        <tr><td>علوم</td><td>أ. سارة</td></tr>
+                                    </table>
+                                </div>
+                                <p class="compare-note"
+                                    >لاحظ كيف "العاشر" يمتد على صفّين.</p
+                                >
+                            </div>
+                        </div>
+
+                        <div class="warn">
+                            <strong>انتبه:</strong>
+                            عند استخدام <code>colspan="2"</code> في صف، يجب أن
+                            يحتوي الصف على خلية واحدة <strong>أقل</strong>
+                            من باقي الصفوف لأن خلية واحدة تأخذ مساحة عمودين.
+                        </div>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default='&lt;table border="1" cellpadding="8"&gt;
+  &lt;tr&gt;
+    &lt;th colspan="3"&gt;جدول الطلاب&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;الاسم&lt;/th&gt;
+    &lt;th&gt;الصف&lt;/th&gt;
+    &lt;th&gt;الدرجة&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td rowspan="2"&gt;مجموعة A&lt;/td&gt;
+    &lt;td&gt;العاشر&lt;/td&gt;
+    &lt;td&gt;88&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;الحادي عشر&lt;/td&gt;
+    &lt;td&gt;92&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;'
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — جدول مع colspan و rowspan</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li
+                                ><code>&lt;th&gt;</code> للعناوين،
+                                <code>&lt;td&gt;</code> للبيانات.</li
+                            >
+                            <li
+                                ><code>colspan</code> = دمج
+                                <strong>أعمدة</strong> (أفقي).
+                                <code>rowspan</code> = دمج
+                                <strong>صفوف</strong> (عمودي).</li
+                            >
+                            <li
+                                ><code>border="1"</code> يضيف حدوداً للجدول، أما
+                                الأنسب فهو استخدام CSS.</li
+                            >
+                            <li
+                                >تذكّر: عدد <code>&lt;td&gt;</code> في كل
+                                <code>&lt;tr&gt;</code> يجب أن يساوي عدد الأعمدة
+                                (مع مراعاة الدمج).</li
+                            >
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="tables"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 07: النماذج                                                -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="forms" data-title="النماذج">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 07</div>
+                        <h2>النماذج (Forms)</h2>
+                        <p class="lesson-lead"
+                            >كيفية إنشاء حقول إدخال لجمع البيانات من
+                            المستخدم.</p
+                        >
+                    </header>
+
+                    <div class="block">
+                        <h3>ما هو النموذج؟</h3>
+                        <p>
+                            النموذج (Form) هو وسيلة لجمع البيانات من المستخدم —
+                            مثل صفحات تسجيل الدخول، التسجيل في موقع، أو ترك
+                            تعليق. نستخدم تاج <code>&lt;form&gt;</code> كحاوية،
+                            وتحته نضع
+                            <strong>حقول الإدخال</strong>
+                            (<code>&lt;input&gt;</code>).
+                        </p>
+                    </div>
+
+                    <div class="tag-grid">
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;form&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >حاوية النموذج. تجمع كل حقول الإدخال معاً.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> عند الحاجة لجمع
+                                بيانات من المستخدم.</div
+                            >
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;input&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >حقل إدخال — يتغيّر نوعه حسب <code>type</code>:
+                                <code>text</code>, <code>password</code>,
+                                <code>email</code>, <code>checkbox</code>,
+                                <code>radio</code>, <code>submit</code>...</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> لكل حقل بيانات
+                                (اسم، إيميل، كلمة سر، إلخ).</div
+                            >
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;label&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يكتب <strong>التسمية</strong> أمام الحقل (مثل
+                                "الاسم:"). يُربط بالحقل عبر <code>for</code>.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> دائماً قبل كل حقل
+                                لتحسين تجربة المستخدم.</div
+                            >
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;textarea&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >حقل نصّي
+                                <strong>كبير ومتعدد الأسطر</strong> (مثل خانة
+                                الرسائل).</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> عندما يحتاج
+                                المستخدم لكتابة نص طويل.</div
+                            >
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;button&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >زر — غالباً يُستخدم لإرسال النموذج.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> في نهاية النموذج
+                                لإرسال البيانات.</div
+                            >
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;select&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >قائمة منسدلة (Drop-down) فيها خيارات
+                                <code>&lt;option&gt;</code>.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمه؟</strong> لاختيار قيمة
+                                واحدة من قائمة (مثل اختيار الدولة).</div
+                            >
+                        </article>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default='&lt;form&gt;
+  &lt;label for="uname"&gt;الاسم:&lt;/label&gt;&lt;br&gt;
+  &lt;input type="text" id="uname" placeholder="اكتب اسمك"&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;label for="mail"&gt;البريد الإلكتروني:&lt;/label&gt;&lt;br&gt;
+  &lt;input type="email" id="mail"&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;label for="pwd"&gt;كلمة المرور:&lt;/label&gt;&lt;br&gt;
+  &lt;input type="password" id="pwd"&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;label&gt;الجنس:&lt;/label&gt;&lt;br&gt;
+  &lt;input type="radio" name="g" id="m"&gt;
+  &lt;label for="m"&gt;ذكر&lt;/label&gt;
+  &lt;input type="radio" name="g" id="f"&gt;
+  &lt;label for="f"&gt;أنثى&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;label for="msg"&gt;ملاحظاتك:&lt;/label&gt;&lt;br&gt;
+  &lt;textarea id="msg" rows="3" cols="30"&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;button type="submit"&gt;إرسال&lt;/button&gt;
+&lt;/form&gt;'
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — نموذج كامل</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li
+                                ><code>&lt;input&gt;</code> تاج
+                                <strong>مفرد</strong>، نوعه يحدد شكله.</li
+                            >
+                            <li
+                                >أنواع <code>type</code> الأكثر شيوعاً:
+                                <code>text</code>, <code>password</code>,
+                                <code>email</code>, <code>radio</code>,
+                                <code>checkbox</code>, <code>submit</code>.</li
+                            >
+                            <li
+                                >اربط <code>&lt;label&gt;</code> بالحقل باستخدام
+                                <code>for</code> + <code>id</code>.</li
+                            >
+                            <li
+                                >أزرار <code>radio</code> التي تشترك في نفس
+                                <code>name</code> = اختيار واحد فقط منها.</li
+                            >
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="forms"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 08: الوسائط                                                -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="media" data-title="الوسائط">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 08</div>
+                        <h2>الوسائط (Media)</h2>
+                        <p class="lesson-lead"
+                            >إضافة الصور <code>&lt;img&gt;</code>، الصوت
+                            <code>&lt;audio&gt;</code>، والفيديو
+                            <code>&lt;video&gt;</code>.</p
+                        >
+                    </header>
+
+                    <div class="tag-grid">
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;img&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يُستخدم لعرض <strong>الصور</strong>. تاج مفرد.
+                                أهم خاصياته: <code>src</code> (مسار الصورة)،
+                                <code>alt</code> (نص بديل)، <code>width</code> و
+                                <code>height</code>.</p
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>&lt;img src="cat.jpg" 
+     alt="قطة" 
+     width="200"&gt;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;audio&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يضيف <strong>ملف صوتي</strong> مع أزرار
+                                التشغيل. استخدم <code>controls</code> لإظهار
+                                الأدوات.</p
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>&lt;audio src="song.mp3" 
+       controls&gt;
+&lt;/audio&gt;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;video&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يضيف <strong>مقطع فيديو</strong>. خصائص شبيهة
+                                بالصوت + <code>width</code> و
+                                <code>height</code>.</p
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>&lt;video src="film.mp4" 
+       controls 
+       width="320"&gt;
+&lt;/video&gt;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;iframe&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                >يُضمّن <strong>صفحة أخرى</strong> داخل صفحتك
+                                (مثل خرائط Google أو فيديو يوتيوب).</p
+                            >
+                            <pre class="codeblock small"><code>&lt;iframe 
+  src="https://example.com"&gt;
+&lt;/iframe&gt;</code></pre>
+                        </article>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default='&lt;h3&gt;صورة:&lt;/h3&gt;
+&lt;img src="https://picsum.photos/300/180" alt="صورة عشوائية" width="300"&gt;
+
+&lt;h3&gt;فيديو:&lt;/h3&gt;
+&lt;video width="320" controls&gt;
+  &lt;source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"&gt;
+  متصفحك لا يدعم الفيديو.
+&lt;/video&gt;
+
+&lt;h3&gt;صوت:&lt;/h3&gt;
+&lt;audio controls&gt;
+  &lt;source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg"&gt;
+  متصفحك لا يدعم الصوت.
+&lt;/audio&gt;'
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — الصور والفيديو والصوت</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li
+                                ><code>&lt;img&gt;</code> تاج
+                                <strong>مفرد</strong> ولا يحتاج إغلاق.</li
+                            >
+                            <li
+                                ><code>alt</code> مهم للوصولية ولظهور النص إذا
+                                فشل تحميل الصورة.</li
+                            >
+                            <li
+                                >أضف <code>controls</code> ليظهر زر التشغيل في
+                                الصوت والفيديو.</li
+                            >
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="media"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 09: Semantic HTML                                          -->
+                <!-- ============================================================== -->
+                <section
+                    class="lesson"
+                    id="semantic"
+                    data-title="Semantic HTML"
+                >
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 09</div>
+                        <h2>Semantic HTML</h2>
+                        <p class="lesson-lead"
+                            >تاجات ذات <strong>معنى</strong> تساعد المتصفحات
+                            ومحركات البحث على فهم بنية الصفحة.</p
+                        >
+                    </header>
+
+                    <div class="block">
+                        <h3>ما معنى Semantic؟</h3>
+                        <p>
+                            Semantic = <strong>دلالي</strong>. التاجات الدلالية
+                            هي تاجات اسمها يصف وظيفتها. بدل استخدام
+                            <code>&lt;div&gt;</code> لكل شيء، نستخدم تاجات أوضح
+                            مثل <code>&lt;header&gt;</code> و
+                            <code>&lt;footer&gt;</code> و
+                            <code>&lt;article&gt;</code>.
+                        </p>
+                    </div>
+
+                    <div class="tag-grid">
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;header&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                ><strong>رأس الصفحة</strong> — يحتوي عادة على
+                                الشعار والقائمة العلوية.</p
+                            >
+                        </article>
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;nav&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                ><strong>قائمة التنقل</strong> — مجموعة الروابط
+                                الرئيسية في الموقع.</p
+                            >
+                        </article>
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;main&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                ><strong>المحتوى الأساسي</strong> للصفحة. مرة
+                                واحدة فقط لكل صفحة.</p
+                            >
+                        </article>
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;section&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                ><strong>قسم</strong> له موضوع واحد، مثل قسم
+                                المنتجات أو قسم الفريق.</p
+                            >
+                        </article>
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;article&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                ><strong>محتوى مستقل</strong>، مثل مقال أو منشور
+                                — يمكن قراءته بمفرده.</p
+                            >
+                        </article>
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">&lt;footer&gt;</code></div
+                            >
+                            <p class="tag-desc"
+                                ><strong>أسفل الصفحة</strong> — يحتوي عادة على
+                                حقوق الملكية والروابط الجانبية.</p
+                            >
+                        </article>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default='&lt;header style="background:#eef;padding:10px"&gt;
+  &lt;h1&gt;اسم الموقع&lt;/h1&gt;
+  &lt;nav&gt;الرئيسية | عنا | اتصل&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h2&gt;عنوان المقال&lt;/h2&gt;
+    &lt;p&gt;محتوى المقال هنا...&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer style="background:#eef;padding:10px;margin-top:10px"&gt;
+  &lt;p&gt;© 2025 جميع الحقوق محفوظة&lt;/p&gt;
+&lt;/footer&gt;'
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — هيكل دلالي</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li
+                                >استخدام التاجات الدلالية يحسّن
+                                <strong>SEO</strong> والوصولية.</li
+                            >
+                            <li
+                                ><code>&lt;main&gt;</code> يجب أن يكون
+                                <strong>مرة واحدة فقط</strong> لكل صفحة.</li
+                            >
+                            <li
+                                >الفرق بين <code>&lt;section&gt;</code> و
+                                <code>&lt;article&gt;</code>: المقال مستقل
+                                بذاته.</li
+                            >
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="semantic"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 10: Best Practices + Attributes                            -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="best" data-title="Best Practices">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 10</div>
+                        <h2>Best Practices + الخصائص (Attributes)</h2>
+                        <p class="lesson-lead"
+                            >شرح <code>id</code>, <code>class</code>,
+                            <code>align</code>, <code>href</code> + أفضل
+                            الممارسات.</p
+                        >
+                    </header>
+
+                    <!-- Attributes section -->
+                    <div class="block">
+                        <h3>الخصائص (Attributes) — مهم جداً</h3>
+                        <p>
+                            <strong>الخاصية</strong> هي معلومة إضافية نضيفها
+                            للتاج لتغيير سلوكه أو شكله. تُكتب داخل تاج الفتح
+                            بصيغة <code>اسم="قيمة"</code>.
+                        </p>
+
+                        <div class="attr-table">
+                            <div class="attr-row attr-head">
+                                <div>الخاصية</div><div>الوصف والاستخدام</div
+                                ><div>مثال</div>
+                            </div>
+
+                            <div class="attr-row">
+                                <div><code>id</code></div>
+                                <div
+                                    >يعطي العنصر
+                                    <strong>معرّف فريد</strong> داخل الصفحة. لا
+                                    يمكن أن يتكرر. يُستخدم للتنسيق بـ CSS، أو
+                                    للروابط الداخلية، أو للوصول من JS.</div
+                                >
+                                <div><code>&lt;p id="intro"&gt;</code></div>
+                            </div>
+
+                            <div class="attr-row">
+                                <div><code>class</code></div>
+                                <div
+                                    >تعطي العنصر <strong>اسم فئة</strong> يمكن
+                                    أن يتكرر على عدة عناصر. تستخدم للتنسيق بـ
+                                    CSS بشكل جماعي.</div
+                                >
+                                <div><code>&lt;p class="note"&gt;</code></div>
+                            </div>
+
+                            <div class="attr-row">
+                                <div><code>href</code></div>
+                                <div
+                                    >تُستخدم مع <code>&lt;a&gt;</code> فقط —
+                                    تُحدّد <strong>وجهة الرابط</strong>.</div
+                                >
+                                <div
+                                    ><code
+                                        >&lt;a href="page.html"&gt;</code
+                                    ></div
+                                >
+                            </div>
+
+                            <div class="attr-row">
+                                <div><code>align</code></div>
+                                <div
+                                    >تُحدّد <strong>محاذاة المحتوى</strong>:
+                                    <code>left</code>, <code>center</code>,
+                                    <code>right</code>.
+                                    <em
+                                        >(قديمة، يُفضّل استخدام CSS بدلاً منها
+                                        لكنها قد تأتي في الامتحان.)</em
+                                    ></div
+                                >
+                                <div><code>&lt;p align="center"&gt;</code></div>
+                            </div>
+
+                            <div class="attr-row">
+                                <div><code>src</code></div>
+                                <div
+                                    >تُستخدم مع الصور والفيديو لتحديد
+                                    <strong>مصدر الملف</strong>.</div
+                                >
+                                <div
+                                    ><code>&lt;img src="cat.png"&gt;</code></div
+                                >
+                            </div>
+
+                            <div class="attr-row">
+                                <div><code>alt</code></div>
+                                <div
+                                    >نص بديل يظهر إذا لم تُحمّل الصورة
+                                    (وللوصولية).</div
+                                >
+                                <div><code>&lt;img alt="قطة"&gt;</code></div>
+                            </div>
+
+                            <div class="attr-row">
+                                <div><code>target</code></div>
+                                <div
+                                    >تُحدّد طريقة فتح الرابط:
+                                    <code>_blank</code> = نافذة جديدة،
+                                    <code>_self</code> = نفس النافذة.</div
+                                >
+                                <div
+                                    ><code>&lt;a target="_blank"&gt;</code></div
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block">
+                        <h3>الفرق بين <code>id</code> و <code>class</code></h3>
+                        <div class="compare">
+                            <div class="compare-col">
+                                <h4>id (معرّف)</h4>
+                                <ul>
+                                    <li>فريد — مرة واحدة في الصفحة.</li>
+                                    <li
+                                        >يستخدم للروابط الداخلية
+                                        <code>#id</code>.</li
+                                    >
+                                    <li>في CSS: <code>#myId { ... }</code></li>
+                                </ul>
+                            </div>
+                            <div class="compare-col">
+                                <h4>class (فئة)</h4>
+                                <ul>
+                                    <li
+                                        >يتكرر — يمكن استخدامه على عدة
+                                        عناصر.</li
+                                    >
+                                    <li>للتنسيق المتشابه لمجموعة عناصر.</li>
+                                    <li
+                                        >في CSS:
+                                        <code>.myClass { ... }</code></li
+                                    >
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block">
+                        <h3>أفضل الممارسات (Best Practices)</h3>
+                        <ol class="bullet">
+                            <li
+                                >استخدم <strong>تاجات صغيرة</strong> دائماً
+                                (<code>&lt;p&gt;</code> بدل
+                                <code>&lt;P&gt;</code>).</li
+                            >
+                            <li
+                                >أغلق كل التاجات حتى لو سمح المتصفح بترك
+                                بعضها.</li
+                            >
+                            <li>استخدم <code>alt</code> لكل صورة.</li>
+                            <li
+                                >اعتمد على <strong>التاجات الدلالية</strong> بدل
+                                <code>&lt;div&gt;</code> للجميع.</li
+                            >
+                            <li
+                                >استخدم CSS للتنسيق وليس خصائص HTML القديمة (مثل
+                                <code>align</code>, <code>bgcolor</code>).</li
+                            >
+                            <li
+                                >أعطِ صفحتك <code>&lt;title&gt;</code> واضحاً
+                                ومفيداً.</li
+                            >
+                            <li>أبقِ الكود مرتباً ومنسّقاً (Indentation).</li>
+                        </ol>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default='&lt;p id="intro" class="note"&gt;
+  هذه فقرة بمعرّف وفئة.
+&lt;/p&gt;
+
+&lt;p class="note"&gt;
+  هذه فقرة بنفس الفئة.
+&lt;/p&gt;
+
+&lt;a href="#intro"&gt;
+  انتقل إلى الفقرة الأولى
+&lt;/a&gt;
+
+&lt;p align="center"&gt;
+  هذا النص في المنتصف باستخدام align (طريقة قديمة).
+&lt;/p&gt;'
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — id, class, href, align</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات نهائية للامتحان</h4>
+                        <ul>
+                            <li
+                                ><code>id</code> فريد، <code>class</code> يتكرر
+                                — هذه قاعدة ثابتة.</li
+                            >
+                            <li
+                                ><code>href</code> هي الخاصية الأساسية لتاج
+                                <code>&lt;a&gt;</code>.</li
+                            >
+                            <li
+                                ><code>align</code> خاصية
+                                <strong>قديمة</strong>، يُفضّل CSS — لكن لازم
+                                تعرفها.</li
+                            >
+                            <li
+                                >راجع كل تاج: متى نستخدمه؟ ما هي خصائصه؟ مثال
+                                عليه؟</li
+                            >
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="best"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- COMPREHENSIVE EXAM                                               -->
+                <!-- ============================================================== -->
+                <section
+                    class="lesson exam-section"
+                    id="exam"
+                    data-title="الامتحان الشامل"
+                >
+                    <header class="lesson-head">
+                        <div class="lesson-num">★ الامتحان الشامل</div>
+                        <h2>اختبر معرفتك في HTML بشكل كامل</h2>
+                        <p class="lesson-lead"
+                            >امتحان نهائي يجمع كل مواضيع الدورة: أسئلة اختيار من
+                            متعدد + أسئلة برمجية تطبيقية. أجب على ما تستطيع، ثم
+                            اضغط "إنهاء وعرض النتيجة" لرؤية درجتك النهائية.</p
+                        >
+                    </header>
+
+                    <div class="exam-hero">
+                        <div class="exam-hero-tag">★ تقييم نهائي</div>
+                        <h2>الامتحان الشامل في HTML</h2>
+                        <p
+                            >مزيج من الأسئلة النظرية (اختيار من متعدد) والأسئلة
+                            البرمجية (اكتب الكود وتأكّد من صحّته في المعاينة
+                            مباشرة). تُحسب الدرجة فوراً عند الإنهاء.</p
+                        >
+                        <div class="exam-hero-meta">
+                            <div class="exam-meta-pill"
+                                >📝 <strong>18</strong> سؤال نظري</div
+                            >
+                            <div class="exam-meta-pill"
+                                >💻 <strong>6</strong> أسئلة برمجية</div
+                            >
+                            <div class="exam-meta-pill"
+                                >⏱️ <strong>~ 30</strong> دقيقة</div
+                            >
+                            <div class="exam-meta-pill"
+                                >🎯 النجاح من <strong>50%</strong></div
+                            >
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 إرشادات قبل البدء</h4>
+                        <ul>
+                            <li
+                                >أسئلة الاختيار من متعدد:
+                                <strong>إجابة واحدة فقط</strong> ولا يمكن
+                                تغييرها بعد الاختيار.</li
+                            >
+                            <li
+                                >الأسئلة البرمجية: اكتب الكود ثم اضغط
+                                <strong>"تحقق من الإجابة"</strong> — يمكنك
+                                المحاولة عدة مرات.</li
+                            >
+                            <li
+                                >زر <strong>"تشغيل"</strong> يعرض الكود في
+                                المعاينة، وزر <strong>"إظهار الحل"</strong> يكشف
+                                الإجابة المقترحة.</li
+                            >
+                            <li
+                                >بعد الانتهاء، اضغط
+                                <strong>"إنهاء وعرض النتيجة"</strong> لمشاهدة
+                                درجتك وتقييمك.</li
+                            >
+                        </ul>
+                    </div>
+
+                    <!-- Exam container — hydrated by buildExam() in script.js -->
+                    <div id="examContainer"></div>
+                </section>
+
+                <!-- ===== END / Footer ===== -->
+                <footer class="page-footer">
+                    <p
+                        >صُنع بـ <span class="heart">♥</span> لطلاب يدرسون HTML
+                        باللغة العربية.</p
+                    >
+                    <p class="dim"
+                        >جميع الأمثلة قابلة للتجربة مباشرة في المحرر
+                        التفاعلي.</p
+                    >
+                </footer>
+            </main>
+        </div>
+
+        <!-- Back to top -->
+        <button class="back-top" id="backTop" aria-label="عودة للأعلى">
+            <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+                <polyline points="18 15 12 9 6 15" />
+            </svg>
+        </button>
+
+        <!-- Toast -->
+        <div class="toast" id="toast">تم النسخ ✓</div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
