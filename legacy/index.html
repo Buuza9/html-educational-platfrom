@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>تعلّم HTML — منصة تفاعلية للمبتدئين</title>
+        <title>تعلّم HTML و CSS — منصة تفاعلية للمبتدئين</title>
 
         <!-- Google Fonts: Reem Kufi (display) + Tajawal (body) for refined Arabic typography -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -93,7 +93,7 @@
             <aside class="sidebar" id="sidebar">
                 <div class="sidebar-head">
                     <span class="sidebar-label">المحتوى</span>
-                    <span class="sidebar-count" id="lessonCount">10 دروس + امتحان</span>
+                    <span class="sidebar-count" id="lessonCount">17 درساً + امتحان</span>
                 </div>
 
                 <nav class="sidebar-nav" id="sidebarNav">
@@ -137,6 +137,41 @@
                         ><span class="nav-num">10</span
                         ><span>Best Practices</span></a
                     >
+
+                    <div class="nav-divider">CSS — التنسيق</div>
+
+                    <a href="#cssIntro" class="nav-link" data-target="cssIntro"
+                        ><span class="nav-num">11</span
+                        ><span>مقدمة عن CSS</span></a
+                    >
+                    <a
+                        href="#cssMethods"
+                        class="nav-link"
+                        data-target="cssMethods"
+                        ><span class="nav-num">12</span
+                        ><span>طرق إضافة CSS</span></a
+                    >
+                    <a href="#cssRules" class="nav-link" data-target="cssRules"
+                        ><span class="nav-num">13</span
+                        ><span>القواعد والمحدِّدات</span></a
+                    >
+                    <a href="#cssText" class="nav-link" data-target="cssText"
+                        ><span class="nav-num">14</span
+                        ><span>تنسيق النصوص</span></a
+                    >
+                    <a href="#cssFonts" class="nav-link" data-target="cssFonts"
+                        ><span class="nav-num">15</span
+                        ><span>الخطوط (Fonts)</span></a
+                    >
+                    <a href="#cssLinks" class="nav-link" data-target="cssLinks"
+                        ><span class="nav-num">16</span
+                        ><span>تنسيق الروابط</span></a
+                    >
+                    <a href="#cssBg" class="nav-link" data-target="cssBg"
+                        ><span class="nav-num">17</span
+                        ><span>الخلفيات (Backgrounds)</span></a
+                    >
+
                     <a href="#exam" class="nav-link nav-exam" data-target="exam"
                         ><span class="nav-num">★</span
                         ><span>الامتحان الشامل</span></a
@@ -166,23 +201,26 @@
                 <section class="hero">
                     <div class="hero-tag">دليل عربي شامل</div>
                     <h2 class="hero-title"
-                        >تعلّم <span class="accent">HTML</span> من الصفر<br />وجهّز
-                        نفسك للامتحان</h2
+                        >تعلّم <span class="accent">HTML</span> و<span
+                            class="accent"
+                            >CSS</span
+                        >
+                        من الصفر<br />وجهّز نفسك للامتحان</h2
                     >
                     <p class="hero-sub">
                         منصة تعليمية بسيطة وواضحة باللغة العربية، تشرح أساسيات
-                        HTML خطوة بخطوة مع أمثلة عملية، محرر كود مباشر،
-                        واختبارات قصيرة بعد كل درس.
+                        HTML لبناء الصفحات و CSS لتنسيقها خطوة بخطوة مع أمثلة
+                        عملية، محرر كود مباشر، واختبارات قصيرة بعد كل درس.
                     </p>
                     <div class="hero-stats">
                         <div class="stat"
-                            ><strong>10</strong><span>دروس</span></div
+                            ><strong>17</strong><span>درساً</span></div
                         >
                         <div class="stat"
-                            ><strong>+30</strong><span>مثال</span></div
+                            ><strong>+45</strong><span>مثال</span></div
                         >
                         <div class="stat"
-                            ><strong>+40</strong><span>سؤال</span></div
+                            ><strong>+60</strong><span>سؤال</span></div
                         >
                         <div class="stat"
                             ><strong>1</strong><span>امتحان شامل</span></div
@@ -2070,6 +2108,845 @@
                 </section>
 
                 <!-- ============================================================== -->
+                <!-- LESSON 11: مقدمة عن CSS                                          -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="cssIntro" data-title="مقدمة عن CSS">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 11</div>
+                        <h2>مقدمة عن CSS</h2>
+                        <p class="lesson-lead"
+                            >ما هي أوراق الأنماط الانسيابيَّة CSS؟ ولماذا غيّرت
+                            طريقة تنسيق صفحات الويب؟</p
+                        >
+                    </header>
+
+                    <div class="block">
+                        <h3>ما هي CSS؟</h3>
+                        <p>
+                            <strong>CSS</strong> اختصار لـ
+                            <em>Cascading Style Sheets</em> (أوراق الأنماط
+                            الانسيابيَّة). فبينما تهتم <strong>HTML</strong>
+                            بوصف <strong>عناصر</strong> الصفحة (هذا عنوان، هذه
+                            فقرة، هذه صورة)، تهتم <strong>CSS</strong> بوصف
+                            <strong>شكل ومظهر</strong> هذه العناصر (لونها،
+                            حجمها، محاذاتها، خلفيتها...).
+                        </p>
+                        <p>
+                            باختصار: HTML تبني الهيكل، و CSS تُلبِسه وتُجمِّله.
+                        </p>
+                    </div>
+
+                    <div class="block">
+                        <h3>المشكلة قبل CSS</h3>
+                        <p>
+                            عند تصميم HTML كان التركيز على
+                            <strong>وصف المحتوى فقط</strong>، وتُركت مهمة المظهر
+                            للمتصفحات. لاحقاً أُضيفت وسوم تنسيق مثل
+                            <code>&lt;font&gt;</code> لتحديد نوع الخط وحجمه ولونه
+                            داخل كل صفحة، لكن هذا تحوّل إلى
+                            <strong>كارثة</strong>: موقع فيه مئات الصفحات يحتاج
+                            تنسيق كل صفحة على حدة، مع صعوبة الحصول على مظهر موحَّد.
+                        </p>
+                        <p>
+                            جاءت CSS لتحلّ المشكلة: تكتب وصف مظهر العنصر
+                            <strong>في مكان واحد ومرة واحدة</strong>، ثم يُطبَّق
+                            على جميع الصفحات المرتبطة بنفس ملف CSS.
+                        </p>
+                    </div>
+
+                    <div class="block">
+                        <h3>لماذا نتعلّم CSS؟</h3>
+                        <ul class="bullet">
+                            <li>لفصل <strong>المحتوى</strong> (HTML) عن
+                                <strong>المظهر</strong> (CSS).</li>
+                            <li>لتوحيد تنسيق الموقع بالكامل من ملف واحد.</li>
+                            <li>لتقليل التكرار وتسهيل الصيانة والتعديل.</li>
+                            <li>لأنها المهارة التالية الطبيعية بعد تعلّم HTML.</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li>CSS = <strong>Cascading Style Sheets</strong>.</li>
+                            <li>HTML تصف <strong>العناصر</strong>، و CSS تصف
+                                <strong>المظهر</strong>.</li>
+                            <li>أكبر ميزة في CSS: اكتب التنسيق
+                                <strong>مرة واحدة</strong> وطبّقه على كل الصفحات.</li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="cssIntro"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 12: طرق إضافة CSS                                         -->
+                <!-- ============================================================== -->
+                <section
+                    class="lesson"
+                    id="cssMethods"
+                    data-title="طرق إضافة CSS"
+                >
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 12</div>
+                        <h2>طرق إضافة CSS إلى الصفحة</h2>
+                        <p class="lesson-lead"
+                            >هناك ثلاث طرق لاستخدام CSS: السطريَّة (Inline)،
+                            الداخليَّة (Internal)، والخارجيَّة (External).</p
+                        >
+                    </header>
+
+                    <div class="tag-grid">
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">Inline</code></div
+                            >
+                            <p class="tag-desc"
+                                >CSS <strong>السطريَّة</strong>: تُكتب داخل
+                                الواصفة <code>style</code> لعنصر واحد فقط.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمها؟</strong> نادراً — غير
+                                مفضَّلة لأنها تعيدنا لمشاكل ما قبل CSS.</div
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>&lt;p style="color:red;"&gt;فقرة&lt;/p&gt;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">Internal</code></div
+                            >
+                            <p class="tag-desc"
+                                >CSS <strong>الداخليَّة</strong>: تُكتب بين وسمي
+                                <code>&lt;style&gt;</code> داخل
+                                <code>&lt;head&gt;</code>.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمها؟</strong> للمواقع ذات العدد
+                                المحدود من الصفحات.</div
+                            >
+                            <pre class="codeblock small"><code>&lt;head&gt;
+  &lt;style&gt;
+    p { color: red; }
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">External</code></div
+                            >
+                            <p class="tag-desc"
+                                >CSS <strong>الخارجيَّة</strong>: تُكتب في ملف
+                                مستقل بامتداد <code>.css</code> ويُربط بالصفحة عبر
+                                <code>&lt;link&gt;</code>.</p
+                            >
+                            <div class="tag-when"
+                                ><strong>متى نستخدمها؟</strong> الطريقة المثاليّة
+                                — خاصة للمواقع المتوسطة والكبيرة.</div
+                            >
+                            <pre class="codeblock small"><code>&lt;link rel="stylesheet"
+      href="style.css" /&gt;</code></pre>
+                        </article>
+                    </div>
+
+                    <div class="block">
+                        <h3>الطريقة الخارجيَّة بالتفصيل</h3>
+                        <p>
+                            نكتب كامل شيفرة CSS في ملف مثل
+                            <code>style.css</code>، ثم نربطه في رأس الصفحة عبر
+                            الوسم <code>&lt;link&gt;</code> بتمرير مسار الملف إلى
+                            <code>href</code> وتحديد العلاقة بـ
+                            <code>stylesheet</code>:
+                        </p>
+                        <pre class="codeblock"><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href="style.css" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    محتوى الصفحة هنا
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default='&lt;style&gt;
+  p { color: teal; text-align: center; }
+&lt;/style&gt;
+
+&lt;p&gt;فقرة منسّقة باستخدام CSS الداخليّة.&lt;/p&gt;'
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — CSS داخليّة</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li>السطريَّة (Inline): عبر الواصفة
+                                <code>style</code> — غير مفضَّلة.</li>
+                            <li>الداخليَّة (Internal): داخل
+                                <code>&lt;style&gt;</code> في
+                                <code>&lt;head&gt;</code>.</li>
+                            <li>الخارجيَّة (External): ملف
+                                <code>.css</code> مربوط بـ
+                                <code>&lt;link rel="stylesheet"&gt;</code> —
+                                الأفضل.</li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="cssMethods"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 13: القواعد والمحدِّدات                                    -->
+                <!-- ============================================================== -->
+                <section
+                    class="lesson"
+                    id="cssRules"
+                    data-title="القواعد والمحدِّدات"
+                >
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 13</div>
+                        <h2>بنية قاعدة CSS والمحدِّدات</h2>
+                        <p class="lesson-lead"
+                            >كيف تُكتب قاعدة CSS؟ وما هو
+                            <code>selector</code> وزوج
+                            <code>property : value</code>؟</p
+                        >
+                    </header>
+
+                    <div class="block">
+                        <h3>الشكل العام للقاعدة (Rule)</h3>
+                        <p>
+                            تتكوّن شيفرة CSS من مجموعة
+                            <strong>قواعد (Rules)</strong>، تصف كل قاعدة مظهر
+                            عنصر أو مجموعة عناصر. الشكل العام:
+                        </p>
+                        <pre class="codeblock"><code>selector {
+    property: value;
+    property: value;
+}</code></pre>
+                        <p>
+                            يُطبَّق كل ما بين القوسين <code>{</code> و
+                            <code>}</code> على كل عناصر الصفحة التي يطابقها
+                            المُحدِّد <code>selector</code>.
+                        </p>
+                    </div>
+
+                    <div class="block">
+                        <h3>المُحدِّدات (Selectors)</h3>
+                        <p
+                            >المُحدِّد يختار العنصر/العناصر التي ستُطبَّق عليها
+                            القاعدة. أشهر ثلاثة أنواع:</p
+                        >
+                        <ul class="bullet">
+                            <li><strong>محدِّد الوسم:</strong> اسم وسم HTML مثل
+                                <code>h1</code> أو <code>p</code> أو
+                                <code>a</code> — يختار كل عناصر هذا النوع.</li>
+                            <li><strong>محدِّد المعرّف (id):</strong> اسم مسبوق
+                                بـ <code>#</code> مثل <code>#main</code> — يختار
+                                العنصر صاحب <code>id="main"</code> (فريد).</li>
+                            <li><strong>محدِّد الفئة (class):</strong> اسم مسبوق
+                                بنقطة مثل <code>.note</code> — يختار كل العناصر
+                                التي تحمل <code>class="note"</code>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="block">
+                        <h3>زوج الخاصية / القيمة</h3>
+                        <p>
+                            تُذكر كل خاصية على شكل
+                            <code>property: value;</code> حيث
+                            <code>property</code> اسم الخاصية و
+                            <code>value</code> قيمتها، وينتهي التعريف بفاصلة
+                            منقوطة <code>;</code>. كـ HTML، لا تعطي CSS أي قيمة
+                            للفراغات الزائدة — هي فقط لتسهيل القراءة.
+                        </p>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default='&lt;style&gt;
+  h1 { color: crimson; }
+  #main { text-align: center; }
+  .note { background: #fff3cd; padding: 8px; }
+&lt;/style&gt;
+
+&lt;h1&gt;عنوان (محدِّد وسم)&lt;/h1&gt;
+&lt;p id="main"&gt;فقرة موسّطة (محدِّد id)&lt;/p&gt;
+&lt;p class="note"&gt;فقرة بخلفية (محدِّد فئة)&lt;/p&gt;'
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — أنواع المحدِّدات</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li>بنية القاعدة:
+                                <code>selector { property: value; }</code>.</li>
+                            <li><code>#</code> للمعرّف (id الفريد)،
+                                <code>.</code> للفئة (class المتكرِّرة).</li>
+                            <li>كل خاصية تنتهي بفاصلة منقوطة
+                                <code>;</code>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="cssRules"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 14: تنسيق النصوص                                          -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="cssText" data-title="تنسيق النصوص">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 14</div>
+                        <h2>خصائص مظهر النصوص</h2>
+                        <p class="lesson-lead"
+                            >المحاذاة، التزيين، الاتجاه، حالة الأحرف، الإزاحة،
+                            واللون.</p
+                        >
+                    </header>
+
+                    <div class="tag-grid">
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">text-align</code></div
+                            >
+                            <p class="tag-desc"
+                                >محاذاة النص. القيم:
+                                <code>right</code>، <code>left</code>،
+                                <code>center</code>،
+                                <code>justify</code> (تساوي عرض الأسطر).</p
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>h1 { text-align: center; }</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">text-decoration</code></div
+                            >
+                            <p class="tag-desc"
+                                >تزيين النص. القيم:
+                                <code>none</code>،
+                                <code>underline</code>،
+                                <code>overline</code>،
+                                <code>line-through</code>.</p
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>a { text-decoration: none; }</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">direction</code></div
+                            >
+                            <p class="tag-desc"
+                                >اتجاه القراءة:
+                                <code>rtl</code> (يمين ليسار) أو
+                                <code>ltr</code> (يسار ليمين).</p
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>p { direction: rtl; }</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">text-transform</code></div
+                            >
+                            <p class="tag-desc"
+                                >حالة الأحرف الإنجليزيَّة:
+                                <code>uppercase</code>،
+                                <code>lowercase</code>،
+                                <code>capitalize</code>.</p
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>p { text-transform: uppercase; }</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">text-indent</code></div
+                            >
+                            <p class="tag-desc"
+                                >إزاحة أول سطر من الفقرة بمقدار محدَّد (غالباً
+                                للفقرات الإنجليزيَّة).</p
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>p { text-indent: 20px; }</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">color</code></div
+                            >
+                            <p class="tag-desc"
+                                >لون النص: بالاسم
+                                (<code>red</code>)، أو ست عشري
+                                (<code>#FF0000</code>)، أو
+                                <code>rgb(255,0,0)</code>.</p
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>p { color: #1565c0; }</code></pre>
+                        </article>
+                    </div>
+
+                    <div class="block">
+                        <h3>طرق كتابة اللون</h3>
+                        <p>
+                            يتشكّل كل لون من مزج
+                            <strong>الأحمر والأخضر والأزرق</strong>. هناك ثلاث
+                            طرق لكتابته:
+                        </p>
+                        <ul class="bullet">
+                            <li><strong>بالاسم:</strong> <code>red</code>،
+                                <code>green</code>، <code>white</code>...</li>
+                            <li><strong>ست عشري (Hexadecimal):</strong>
+                                <code>#RRGGBB</code> — كل خانتين تتدرّجان بين
+                                <code>00</code> و <code>FF</code> (مثل
+                                <code>#FF00FF</code> للبنفسجي).</li>
+                            <li><strong>عبر rgb():</strong>
+                                <code>rgb(255, 0, 0)</code> — كل قيمة بين
+                                <code>0</code> و <code>255</code>.</li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default='&lt;style&gt;
+  p {
+    text-align: justify;
+    color: #1565c0;
+    text-decoration: underline;
+    text-transform: uppercase;
+    direction: rtl;
+  }
+&lt;/style&gt;
+
+&lt;p&gt;This is a CSS text demo — جرّب تغيير القيم بالأعلى وشاهد النتيجة مباشرة.&lt;/p&gt;'
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — خصائص النصوص</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li><code>text-align: justify</code> تجعل الأسطر
+                                متساوية العرض.</li>
+                            <li><code>text-decoration: none</code> تُزيل الخط عن
+                                الروابط.</li>
+                            <li>اللون يُكتب بالاسم أو
+                                <code>#RRGGBB</code> أو
+                                <code>rgb()</code>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="cssText"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 15: الخطوط (Fonts)                                        -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="cssFonts" data-title="الخطوط">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 15</div>
+                        <h2>خصائص الخطوط Fonts</h2>
+                        <p class="lesson-lead"
+                            ><code>font-family</code>،
+                            <code>font-style</code>،
+                            <code>font-size</code>.</p
+                        >
+                    </header>
+
+                    <div class="block">
+                        <h3>عائلة الخطوط <code>font-family</code></h3>
+                        <p>
+                            نُسند خطاً واحداً أو عدّة خطوط مفصولة بفواصل، فيكون
+                            الأول هو الافتراضي، وإن تعذّر على المتصفح إيجاده انتقل
+                            للذي يليه وهكذا. توفّر CSS ثلاث عوائل افتراضيَّة:
+                        </p>
+                        <ul class="bullet">
+                            <li><strong>Serif</strong> — خطوط ذات زوائد.</li>
+                            <li><strong>Sans-serif</strong> — بلا زوائد
+                                (يُنصح بها للإنجليزيَّة).</li>
+                            <li><strong>Monospace</strong> — عرض ثابت لكل حرف
+                                (مناسبة لعرض شيفرات البرمجة).</li>
+                        </ul>
+                    </div>
+
+                    <div class="tag-grid">
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">font-family</code></div
+                            >
+                            <p class="tag-desc"
+                                >قائمة الخطوط بالأولويَّة. آخر قيمة عادةً عائلة
+                                افتراضيَّة بلا علامتي اقتباس.</p
+                            >
+                            <pre class="codeblock small"><code>font-family:
+  "Tahoma", sans-serif;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">font-style</code></div
+                            >
+                            <p class="tag-desc"
+                                >نمط الخط:
+                                <code>italic</code> (مائل) أو
+                                <code>normal</code> (عادي).</p
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>font-style: italic;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">font-size</code></div
+                            >
+                            <p class="tag-desc"
+                                >حجم النص بالبكسل
+                                (<code>px</code>) أو بالواحدة
+                                <code>em</code> (كل <code>1em = 16px</code>).</p
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>font-size: 1.5em;</code></pre>
+                        </article>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default='&lt;style&gt;
+  p {
+    font-family: "Tahoma", "Simplified Arabic", sans-serif;
+    font-size: 1.5em;
+    font-style: italic;
+  }
+&lt;/style&gt;
+
+&lt;p&gt;صفحة اختبار لخصائص الخطوط في CSS.&lt;/p&gt;'
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — الخطوط</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li>أول خط في <code>font-family</code> هو
+                                الافتراضي، والباقي بدائل احتياطيَّة.</li>
+                            <li>العائلة الافتراضيَّة (مثل
+                                <code>sans-serif</code>) تُكتب
+                                <strong>بلا</strong> علامتي اقتباس.</li>
+                            <li><code>1em = 16px</code>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="cssFonts"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 16: تنسيق الروابط                                          -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="cssLinks" data-title="تنسيق الروابط">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 16</div>
+                        <h2>خصائص مظهر الروابط</h2>
+                        <p class="lesson-lead"
+                            >تنسيق الرابط في حالاته المختلفة عبر المحدِّدات:
+                            <code>:link</code>، <code>:visited</code>،
+                            <code>:hover</code>، <code>:active</code>.</p
+                        >
+                    </header>
+
+                    <div class="block">
+                        <h3>محدِّدات حالات الرابط</h3>
+                        <p>
+                            لا توجد خصائص خاصّة بالروابط، بل
+                            <strong>محدِّدات</strong> لتنسيق الرابط حسب حالته:
+                        </p>
+                        <ul class="bullet">
+                            <li><code>a:link</code> — الرابط في حالته العاديَّة
+                                (مكافئ لـ <code>a</code> وحده).</li>
+                            <li><code>a:visited</code> — رابط سبقت زيارته.</li>
+                            <li><code>a:hover</code> — عند مرور مؤشِّر الفأرة
+                                فوقه.</li>
+                            <li><code>a:active</code> — لحظة النقر عليه.</li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default='&lt;style&gt;
+  a:link { color: blue; text-decoration: none; }
+  a:visited { color: green; }
+  a:hover { text-decoration: underline; }
+  a:active { font-size: 120%; }
+&lt;/style&gt;
+
+&lt;a href="#"&gt;رابط عادي&lt;/a&gt;&lt;br&gt;&lt;br&gt;
+&lt;a href="#"&gt;مرِّر الفأرة فوقي أو انقر&lt;/a&gt;'
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — حالات الرابط</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li>الترتيب مهم: يُذكر
+                                <code>a:hover</code> بعد
+                                <code>a:link</code> و
+                                <code>a:visited</code>.</li>
+                            <li>ويُذكر <code>a:active</code> بعد
+                                <code>a:hover</code>.</li>
+                            <li><code>text-decoration: none</code> تُزيل خط
+                                الرابط الافتراضي.</li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="cssLinks"></div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- LESSON 17: الخلفيات (Backgrounds)                                -->
+                <!-- ============================================================== -->
+                <section class="lesson" id="cssBg" data-title="الخلفيات">
+                    <header class="lesson-head">
+                        <div class="lesson-num">الدرس 17</div>
+                        <h2>خصائص الخلفيات Backgrounds</h2>
+                        <p class="lesson-lead"
+                            >تلوين الخلفيات ووضع الصور فيها، مع التعرّف على
+                            التحديد بالفئات (classes).</p
+                        >
+                    </header>
+
+                    <div class="tag-grid">
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">background-color</code></div
+                            >
+                            <p class="tag-desc"
+                                >خلفية لونيَّة للعنصر.</p
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>background-color: #cf1a11;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">background-image</code></div
+                            >
+                            <p class="tag-desc"
+                                >تعيين صورة كخلفية عبر
+                                <code>url()</code>.</p
+                            >
+                            <pre class="codeblock small"><code>background-image:
+  url("image.jpg");</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">background-repeat</code></div
+                            >
+                            <p class="tag-desc"
+                                >تكرار الصورة:
+                                <code>repeat-x</code>،
+                                <code>repeat-y</code>،
+                                <code>repeat</code>،
+                                <code>no-repeat</code>.</p
+                            >
+                            <pre
+                                class="codeblock small"
+                            ><code>background-repeat: no-repeat;</code></pre>
+                        </article>
+
+                        <article class="tag-card">
+                            <div class="tag-card-head"
+                                ><code class="tag">background-position</code></div
+                            >
+                            <p class="tag-desc"
+                                >موضع الصورة، مثل
+                                <code>center center</code> أو
+                                <code>left top</code>.</p
+                            >
+                            <pre class="codeblock small"><code>background-position:
+  center center;</code></pre>
+                        </article>
+                    </div>
+
+                    <div class="block">
+                        <h3>التحديد بالفئات (Classes)</h3>
+                        <p>
+                            طريقة خاصّة لتحديد العناصر: نعرّف
+                            <strong>فئة</strong> باسم مسبوق بنقطة في CSS، ثم نُسند
+                            اسمها (بدون نقطة) إلى الواصفة
+                            <code>class</code> للعناصر المطلوبة، فيُطبَّق التنسيق
+                            على كل عنصر يحمل تلك الفئة.
+                        </p>
+                        <pre class="codeblock"><code>&lt;style&gt;
+  .firstP { background-color: black; color: white; }
+&lt;/style&gt;
+
+&lt;p class="firstP"&gt;فقرة بخلفية سوداء&lt;/p&gt;</code></pre>
+                    </div>
+
+                    <div
+                        class="editor"
+                        data-default='&lt;style&gt;
+  .firstP {
+    background-color: black;
+    color: white;
+    padding: 10px;
+  }
+  .secondP {
+    background-color: #cf1a11;
+    color: white;
+    padding: 10px;
+  }
+&lt;/style&gt;
+
+&lt;p class="firstP"&gt;عنصر بخلفية سوداء ونص أبيض.&lt;/p&gt;
+&lt;p class="secondP"&gt;عنصر بخلفية حمراء.&lt;/p&gt;'
+                    >
+                        <div class="editor-head">
+                            <span>محرر تجريبي — الخلفيات والفئات</span>
+                            <div class="editor-actions">
+                                <button class="btn-ghost copy-btn">نسخ</button>
+                                <button class="btn-primary run-btn"
+                                    >تشغيل</button
+                                >
+                            </div>
+                        </div>
+                        <div class="editor-body">
+                            <textarea
+                                class="editor-code"
+                                spellcheck="false"
+                            ></textarea>
+                            <iframe
+                                class="editor-preview"
+                                title="معاينة"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tips">
+                        <h4>💡 ملاحظات للامتحان</h4>
+                        <ul>
+                            <li><code>background-color</code> للون،
+                                <code>background-image: url(...)</code>
+                                للصورة.</li>
+                            <li><code>no-repeat</code> تمنع تكرار الصورة.</li>
+                            <li>الفئة تُعرَّف بنقطة
+                                <code>.name</code> وتُستدعى عبر
+                                <code>class="name"</code>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz" data-quiz="cssBg"></div>
+                </section>
+
+                <!-- ============================================================== -->
                 <!-- COMPREHENSIVE EXAM                                               -->
                 <!-- ============================================================== -->
                 <section
@@ -2079,7 +2956,7 @@
                 >
                     <header class="lesson-head">
                         <div class="lesson-num">★ الامتحان الشامل</div>
-                        <h2>اختبر معرفتك في HTML بشكل كامل</h2>
+                        <h2>اختبر معرفتك في HTML و CSS بشكل كامل</h2>
                         <p class="lesson-lead"
                             >امتحان نهائي يجمع كل مواضيع الدورة: أسئلة اختيار من
                             متعدد + أسئلة برمجية تطبيقية. أجب على ما تستطيع، ثم
@@ -2089,7 +2966,7 @@
 
                     <div class="exam-hero">
                         <div class="exam-hero-tag">★ تقييم نهائي</div>
-                        <h2>الامتحان الشامل في HTML</h2>
+                        <h2>الامتحان الشامل في HTML و CSS</h2>
                         <p
                             >مزيج من الأسئلة النظرية (اختيار من متعدد) والأسئلة
                             البرمجية (اكتب الكود وتأكّد من صحّته في المعاينة
@@ -2097,13 +2974,13 @@
                         >
                         <div class="exam-hero-meta">
                             <div class="exam-meta-pill"
-                                >📝 <strong>18</strong> سؤال نظري</div
+                                >📝 <strong>28</strong> سؤال نظري</div
                             >
                             <div class="exam-meta-pill"
-                                >💻 <strong>6</strong> أسئلة برمجية</div
+                                >💻 <strong>10</strong> أسئلة برمجية</div
                             >
                             <div class="exam-meta-pill"
-                                >⏱️ <strong>~ 30</strong> دقيقة</div
+                                >⏱️ <strong>~ 45</strong> دقيقة</div
                             >
                             <div class="exam-meta-pill"
                                 >🎯 النجاح من <strong>50%</strong></div

@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+/* Dark mode is driven by a data attribute on <html> (toggled in JS),
+   not the OS preference, matching the legacy app. */
+@custom-variant dark (&:where([data-theme="dark"] *));
+
+/* ============================================================
+   Design tokens (ported from the legacy styles.css palette)
+   ============================================================ */
+:root {
+  --c-main: #161a30;
+  --c-second: #31304d;
+  --c-third: #b6bbc4;
+  --c-fourth: #f0ece5;
+
+  --bg: #f0ece5;
+  --bg-alt: #f7f4ee;
+  --bg-soft: #e6e1d6;
+  --ink: #161a30;
+  --ink-soft: #31304d;
+  --ink-mute: #6b6f7e;
+  --line: #b6bbc4;
+  --line-soft: #d4d6dc;
+
+  --accent: #161a30;
+  --accent-2: #31304d;
+  --accent-soft: rgba(22, 26, 48, 0.08);
+  --accent-warm: rgba(49, 48, 77, 0.12);
+
+  --code-bg: #161a30;
+  --code-fg: #f0ece5;
+  --code-accent: #b6bbc4;
+
+  --ok: #2da27c;
+  --ko: #c4524a;
+
+  --shadow-sm: 0 1px 2px rgba(22, 26, 48, 0.05), 0 1px 3px rgba(22, 26, 48, 0.07);
+  --shadow-md: 0 4px 14px rgba(22, 26, 48, 0.08), 0 2px 6px rgba(22, 26, 48, 0.05);
+  --shadow-lg: 0 18px 40px rgba(22, 26, 48, 0.12);
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+}
+
+[data-theme="dark"] {
+  --bg: #161a30;
+  --bg-alt: #1f2340;
+  --bg-soft: #31304d;
+  --ink: #f0ece5;
+  --ink-soft: #b6bbc4;
+  --ink-mute: #8a8fa0;
+  --line: #31304d;
+  --line-soft: #2a2d45;
+
+  --accent: #b6bbc4;
+  --accent-2: #f0ece5;
+  --accent-soft: rgba(182, 187, 196, 0.14);
+  --accent-warm: rgba(240, 236, 229, 0.1);
+
+  --code-bg: #0e1024;
+  --code-fg: #f0ece5;
+}
+
+/* ============================================================
+   Expose tokens to Tailwind as semantic utilities, e.g.
+   bg-surface, text-ink, border-line, text-ok ...
+   These reference the live CSS vars so they react to theme.
+   ============================================================ */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--bg-alt);
+  --color-soft: var(--bg-soft);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-ok: var(--ok);
+  --color-ko: var(--ko);
+  --color-code-bg: var(--code-bg);
+  --color-code-fg: var(--code-fg);
+
+  --radius-app-sm: var(--radius-sm);
+  --radius-app: var(--radius);
+  --radius-app-lg: var(--radius-lg);
+
+  --font-display: var(--font-reem-kufi), system-ui, sans-serif;
+  --font-body: var(--font-tajawal), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "Courier New", monospace;
+}
+
+/* ============================================================
+   Base element styles — kept in @layer base so Tailwind utility
+   classes (e.g. text-white on links) always override them.
+   ============================================================ */
+@layer base {
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  color: var(--ink);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+code,
+kbd {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--bg-soft);
+  color: var(--accent);
+  padding: 0.12em 0.4em;
+  border-radius: 6px;
+}
+
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+::selection {
+  background: var(--accent-warm);
+}
+}

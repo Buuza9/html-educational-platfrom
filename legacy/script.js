@@ -358,6 +358,120 @@ document.addEventListener('DOMContentLoaded', () => {
             || /<p\b[^>]*class\s*=\s*["'][^"']*\bhighlight\b[^"']*["'][^>]*id\s*=\s*["']main-note["']/i.test(c)
         }
       ]
+    },
+
+    /* ===================== CSS lessons ===================== */
+    cssIntro: {
+      mcq: [
+        { q: 'ماذا يعني اختصار CSS؟', opts: ['Cascading Style Sheets', 'Computer Style System', 'Creative Styling Syntax', 'Colorful Style Sheets'], correct: 0, ok: 'ممتاز! CSS = Cascading Style Sheets.', ko: 'الإجابة الصحيحة: Cascading Style Sheets.' },
+        { q: 'ما الفرق بين HTML و CSS؟', opts: ['لا فرق بينهما', 'HTML تصف العناصر و CSS تصف المظهر', 'CSS تصف العناصر و HTML تصف المظهر', 'كلاهما للبرمجة'], correct: 1, ok: 'صحيح! HTML للهيكل و CSS للمظهر.', ko: 'الإجابة الصحيحة: HTML تصف العناصر و CSS تصف المظهر.' },
+        { q: 'ما أكبر ميزة جاءت بها CSS؟', opts: ['تسريع الإنترنت', 'كتابة التنسيق مرة واحدة وتطبيقه على عدة صفحات', 'إنشاء قواعد بيانات', 'تشغيل الفيديو'], correct: 1, ok: 'تمام! تكتب التنسيق مرة واحدة وتطبّقه على الكل.', ko: 'الإجابة الصحيحة: كتابة التنسيق مرة واحدة وتطبيقه على عدة صفحات.' }
+      ],
+      coding: []
+    },
+
+    cssMethods: {
+      mcq: [
+        { q: 'أي طريقة تُكتب فيها CSS في ملف .css منفصل؟', opts: ['السطريَّة (Inline)', 'الداخليَّة (Internal)', 'الخارجيَّة (External)', 'لا توجد'], correct: 2, ok: 'صحيح! الخارجيَّة في ملف مستقل.', ko: 'الإجابة الصحيحة: الخارجيَّة (External).' },
+        { q: 'أين تُكتب CSS الداخليَّة؟', opts: ['داخل <body>', 'داخل <style> في <head>', 'في ملف منفصل', 'داخل الواصفة style'], correct: 1, ok: 'تمام! داخل <style> في <head>.', ko: 'الإجابة الصحيحة: داخل <style> في <head>.' },
+        { q: 'أي وسم يربط ملف CSS خارجي بالصفحة؟', opts: ['<style>', '<css>', '<link>', '<script>'], correct: 2, ok: 'ممتاز! <link> يربط الملف الخارجي.', ko: 'الإجابة الصحيحة: <link>.' }
+      ],
+      coding: [
+        {
+          prompt: 'اكتب وسم <link> لربط ملف CSS خارجي اسمه style.css.',
+          hint: 'استخدم rel="stylesheet" و href="style.css".',
+          starter: '',
+          solution: '<link rel="stylesheet" type="text/css" href="style.css" />',
+          check: (c) => (/<link\b[^>]*rel\s*=\s*["']stylesheet["'][^>]*href\s*=\s*["']style\.css["']/i.test(c)
+            || /<link\b[^>]*href\s*=\s*["']style\.css["'][^>]*rel\s*=\s*["']stylesheet["']/i.test(c))
+        }
+      ]
+    },
+
+    cssRules: {
+      mcq: [
+        { q: 'ما الرمز الذي يسبق محدِّد الفئة (class)؟', opts: ['#', '.', '@', '*'], correct: 1, ok: 'صحيح! النقطة (.) للفئة.', ko: 'الإجابة الصحيحة: النقطة (.).' },
+        { q: 'ما الرمز الذي يسبق محدِّد المعرّف (id)؟', opts: ['.', '#', '&', '%'], correct: 1, ok: 'تمام! (#) للمعرّف id.', ko: 'الإجابة الصحيحة: (#).' },
+        { q: 'بماذا تنتهي كل خاصية داخل قاعدة CSS؟', opts: ['نقطة .', 'فاصلة منقوطة ;', 'فاصلة ,', 'لا شيء'], correct: 1, ok: 'ممتاز! كل خاصية تنتهي بـ ;', ko: 'الإجابة الصحيحة: فاصلة منقوطة ;' }
+      ],
+      coding: [
+        {
+          prompt: 'اكتب قاعدة CSS (داخل <style>) تجعل كل عناصر <h1> لونها أزرق (blue).',
+          hint: 'الشكل: h1 { color: blue; }',
+          starter: '<style>\n\n</style>',
+          solution: '<style>\n  h1 { color: blue; }\n</style>',
+          check: (c) => /h1\s*\{[^}]*color\s*:\s*blue/i.test(c)
+        }
+      ]
+    },
+
+    cssText: {
+      mcq: [
+        { q: 'أي قيمة لـ text-align تجعل أسطر الفقرة متساوية العرض؟', opts: ['center', 'justify', 'right', 'left'], correct: 1, ok: 'صحيح! justify يساوي عرض الأسطر.', ko: 'الإجابة الصحيحة: justify.' },
+        { q: 'أي خاصية تُستخدم لإزالة الخط من تحت الروابط؟', opts: ['text-style', 'text-decoration', 'text-line', 'font-style'], correct: 1, ok: 'تمام! text-decoration: none.', ko: 'الإجابة الصحيحة: text-decoration.' },
+        { q: 'كيف نكتب اللون الأحمر بالنظام الست عشري؟', opts: ['#00FF00', '#0000FF', '#FF0000', '#FFFFFF'], correct: 2, ok: 'ممتاز! #FF0000 = أحمر.', ko: 'الإجابة الصحيحة: #FF0000.' },
+        { q: 'أي خاصية تتحكّم في اتجاه القراءة (يمين/يسار)؟', opts: ['align', 'direction', 'rtl', 'float'], correct: 1, ok: 'صح! direction: rtl أو ltr.', ko: 'الإجابة الصحيحة: direction.' }
+      ],
+      coding: [
+        {
+          prompt: 'اكتب قاعدة CSS تجعل الفقرات <p> موسّطة (center) ولون نصّها أحمر (red).',
+          hint: 'استخدم text-align: center و color: red داخل قاعدة p.',
+          starter: '<style>\n  p {\n\n  }\n</style>',
+          solution: '<style>\n  p {\n    text-align: center;\n    color: red;\n  }\n</style>',
+          check: (c) => /text-align\s*:\s*center/i.test(c) && /color\s*:\s*red\b/i.test(c)
+        }
+      ]
+    },
+
+    cssFonts: {
+      mcq: [
+        { q: 'كم يساوي 1em بالبكسل افتراضياً؟', opts: ['10px', '12px', '16px', '20px'], correct: 2, ok: 'ممتاز! 1em = 16px.', ko: 'الإجابة الصحيحة: 16px.' },
+        { q: 'أي قيمة لـ font-style تجعل الخط مائلاً؟', opts: ['bold', 'italic', 'oblique-normal', 'slant'], correct: 1, ok: 'صحيح! italic = مائل.', ko: 'الإجابة الصحيحة: italic.' },
+        { q: 'أي عائلة خطوط يُنصح بها لعرض شيفرات البرمجة؟', opts: ['Serif', 'Sans-serif', 'Monospace', 'Cursive'], correct: 2, ok: 'تمام! Monospace ذات عرض ثابت.', ko: 'الإجابة الصحيحة: Monospace.' }
+      ],
+      coding: [
+        {
+          prompt: 'اكتب قاعدة CSS تجعل حجم خط الفقرات <p> يساوي 1.5em ونمطه مائلاً (italic).',
+          hint: 'استخدم font-size: 1.5em و font-style: italic.',
+          starter: '<style>\n  p {\n\n  }\n</style>',
+          solution: '<style>\n  p {\n    font-size: 1.5em;\n    font-style: italic;\n  }\n</style>',
+          check: (c) => /font-size\s*:\s*1\.5em/i.test(c) && /font-style\s*:\s*italic/i.test(c)
+        }
+      ]
+    },
+
+    cssLinks: {
+      mcq: [
+        { q: 'أي محدِّد يُنسّق الرابط عند مرور الفأرة فوقه؟', opts: ['a:link', 'a:visited', 'a:hover', 'a:active'], correct: 2, ok: 'صحيح! a:hover عند المرور بالفأرة.', ko: 'الإجابة الصحيحة: a:hover.' },
+        { q: 'أي محدِّد يُنسّق الرابط الذي سبقت زيارته؟', opts: ['a:active', 'a:visited', 'a:hover', 'a:link'], correct: 1, ok: 'تمام! a:visited للرابط المُزار.', ko: 'الإجابة الصحيحة: a:visited.' },
+        { q: 'متى يجب ذكر القاعدة a:hover؟', opts: ['قبل a:link', 'بعد a:link و a:visited', 'قبل كل شيء', 'لا يهم الترتيب'], correct: 1, ok: 'ممتاز! a:hover بعد a:link و a:visited.', ko: 'الإجابة الصحيحة: بعد a:link و a:visited.' }
+      ],
+      coding: [
+        {
+          prompt: 'اكتب قاعدة تجعل الروابط في حالتها العادية (a:link) بلا خط (text-decoration: none).',
+          hint: 'الشكل: a:link { text-decoration: none; }',
+          starter: '<style>\n\n</style>',
+          solution: '<style>\n  a:link { text-decoration: none; }\n</style>',
+          check: (c) => /a\s*:\s*link\s*\{[^}]*text-decoration\s*:\s*none/i.test(c)
+        }
+      ]
+    },
+
+    cssBg: {
+      mcq: [
+        { q: 'أي قيمة لـ background-repeat تمنع تكرار الصورة؟', opts: ['repeat', 'repeat-x', 'no-repeat', 'once'], correct: 2, ok: 'صحيح! no-repeat تمنع التكرار.', ko: 'الإجابة الصحيحة: no-repeat.' },
+        { q: 'كيف نعيّن صورة كخلفية لعنصر؟', opts: ['background-color: url(...)', 'background-image: url(...)', 'image: src(...)', 'background: image(...)'], correct: 1, ok: 'تمام! background-image: url(...).', ko: 'الإجابة الصحيحة: background-image: url(...).' },
+        { q: 'كيف تُعرَّف الفئة (class) في CSS؟', opts: ['باسم مسبوق بـ #', 'باسم مسبوق بنقطة .', 'باسم مسبوق بـ @', 'باسم بين قوسين'], correct: 1, ok: 'ممتاز! الفئة تُعرَّف بنقطة .', ko: 'الإجابة الصحيحة: باسم مسبوق بنقطة.' }
+      ],
+      coding: [
+        {
+          prompt: 'اكتب قاعدة CSS تعطي العنصر <body> خلفية لونها أحمر (red).',
+          hint: 'استخدم background-color: red; داخل قاعدة body.',
+          starter: '<style>\n  body {\n\n  }\n</style>',
+          solution: '<style>\n  body {\n    background-color: red;\n  }\n</style>',
+          check: (c) => /body\s*\{[^}]*background(-color)?\s*:\s*red\b/i.test(c)
+        }
+      ]
     }
   };
 
@@ -538,7 +652,17 @@ document.addEventListener('DOMContentLoaded', () => {
       { topic: 'دلالي', q: 'تاج دلالي للقائمة الرئيسية للتنقل:', opts: ['<menu>', '<nav>', '<bar>', '<links>'], correct: 1 },
       { topic: 'دلالي', q: 'تاج المحتوى الأساسي للصفحة:', opts: ['<body>', '<main>', '<section>', '<content>'], correct: 1 },
       { topic: 'best', q: 'الفرق الأساسي بين id و class:', opts: ['لا يوجد فرق', 'id فريد، class يتكرر', 'class فريد، id يتكرر', 'كلاهما فريد'], correct: 1 },
-      { topic: 'best', q: 'الأفضل لتنسيق الصفحة:', opts: ['align و bgcolor', 'CSS', 'JavaScript فقط', 'Word'], correct: 1 }
+      { topic: 'best', q: 'الأفضل لتنسيق الصفحة:', opts: ['align و bgcolor', 'CSS', 'JavaScript فقط', 'Word'], correct: 1 },
+      { topic: 'CSS', q: 'ماذا يعني اختصار CSS؟', opts: ['Cascading Style Sheets', 'Creative Style System', 'Computer Styled Syntax', 'Colorful Sheet Styles'], correct: 0 },
+      { topic: 'CSS', q: 'أين تُكتب CSS الداخليَّة؟', opts: ['داخل <body>', 'داخل <style> في <head>', 'في ملف منفصل', 'داخل <script>'], correct: 1 },
+      { topic: 'CSS', q: 'أي وسم يربط ملف CSS خارجي؟', opts: ['<style>', '<link>', '<css>', '<src>'], correct: 1 },
+      { topic: 'CSS', q: 'الرمز الذي يسبق محدِّد الفئة (class) هو:', opts: ['#', '.', '@', '*'], correct: 1 },
+      { topic: 'CSS', q: 'الرمز الذي يسبق محدِّد المعرّف (id) هو:', opts: ['.', '#', '&', '%'], correct: 1 },
+      { topic: 'CSS', q: 'قيمة text-align التي تجعل الأسطر متساوية العرض:', opts: ['center', 'justify', 'right', 'left'], correct: 1 },
+      { topic: 'CSS', q: '1em يساوي كم بكسل افتراضياً؟', opts: ['10px', '16px', '20px', '12px'], correct: 1 },
+      { topic: 'CSS', q: 'محدِّد الرابط عند مرور الفأرة فوقه:', opts: ['a:link', 'a:visited', 'a:hover', 'a:active'], correct: 2 },
+      { topic: 'CSS', q: 'قيمة background-repeat التي تمنع تكرار الصورة:', opts: ['repeat', 'repeat-x', 'no-repeat', 'once'], correct: 2 },
+      { topic: 'CSS', q: 'قيمة font-style للخط المائل:', opts: ['bold', 'italic', 'slant', 'oblique-normal'], correct: 1 }
     ],
     coding: [
       {
@@ -615,6 +739,39 @@ document.addEventListener('DOMContentLoaded', () => {
           return h !== -1 && n !== -1 && m !== -1 && f !== -1
             && h < n && n < m && m < f;
         }
+      },
+      {
+        topic: 'CSS طرق',
+        prompt: 'اكتب وسم <link> لربط ملف CSS خارجي اسمه style.css.',
+        hint: 'rel="stylesheet" و href="style.css".',
+        starter: '',
+        solution: '<link rel="stylesheet" type="text/css" href="style.css" />',
+        check: (c) => /<link\b[^>]*rel\s*=\s*["']stylesheet["'][^>]*href\s*=\s*["']style\.css["']/i.test(c)
+          || /<link\b[^>]*href\s*=\s*["']style\.css["'][^>]*rel\s*=\s*["']stylesheet["']/i.test(c)
+      },
+      {
+        topic: 'CSS محدِّدات',
+        prompt: 'اكتب قاعدة CSS (داخل <style>) تجعل كل عناصر <h1> لونها أزرق (blue).',
+        hint: 'h1 { color: blue; }',
+        starter: '<style>\n\n</style>',
+        solution: '<style>\n  h1 { color: blue; }\n</style>',
+        check: (c) => /h1\s*\{[^}]*color\s*:\s*blue/i.test(c)
+      },
+      {
+        topic: 'CSS نصوص',
+        prompt: 'اكتب قاعدة CSS تجعل الفقرات <p> موسّطة (center) ولون نصّها أحمر (red).',
+        hint: 'text-align: center و color: red.',
+        starter: '<style>\n  p {\n\n  }\n</style>',
+        solution: '<style>\n  p {\n    text-align: center;\n    color: red;\n  }\n</style>',
+        check: (c) => /text-align\s*:\s*center/i.test(c) && /color\s*:\s*red\b/i.test(c)
+      },
+      {
+        topic: 'CSS خلفيات',
+        prompt: 'اكتب قاعدة CSS تعطي العنصر <body> خلفية لونها أحمر (red).',
+        hint: 'background-color: red; داخل قاعدة body.',
+        starter: '<style>\n  body {\n\n  }\n</style>',
+        solution: '<style>\n  body {\n    background-color: red;\n  }\n</style>',
+        check: (c) => /body\s*\{[^}]*background(-color)?\s*:\s*red\b/i.test(c)
       }
     ]
   };

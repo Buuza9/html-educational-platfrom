@@ -276,6 +276,17 @@ code {
   gap: 2px;
 }
 
+.nav-divider {
+  margin: .85rem .25rem .35rem;
+  padding-top: .7rem;
+  border-top: 1px solid var(--line);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+}
+
 .nav-link {
   display: flex; align-items: center; gap: .75rem;
   padding: .65rem .85rem;
