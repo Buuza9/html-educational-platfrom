@@ -87,37 +87,30 @@ export default function Exam({
   const pct = total === 0 ? 0 : (answered / total) * 100;
 
   return (
-    <section className="my-8">
+    <section>
       {/* sticky score bar */}
-      <div className="sticky top-[calc(var(--topbar-h)+8px)] z-50 mb-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-3 rounded-[var(--radius)] border border-line bg-surface px-4 py-4 shadow-[var(--shadow-sm)] sm:px-5">
-        <div className="flex items-center gap-4 text-sm text-ink-soft">
+      <div className="exam-score-bar">
+        <div className="exam-score-info">
           <span>
-            الإجابات:{" "}
-            <strong className="font-mono text-[1.05rem] text-accent">{answered}</strong> /{" "}
-            {total}
+            الإجابات: <strong>{answered}</strong> / {total}
           </span>
           <span>
-            الصحيحة:{" "}
-            <strong className="font-mono text-[1.05rem] text-ok">{correct}</strong>
+            الصحيحة: <strong>{correct}</strong>
           </span>
         </div>
-        <div className="order-last h-2 w-full overflow-hidden rounded-full bg-soft sm:order-none sm:w-auto sm:min-w-[140px] sm:flex-1">
+        <div className="exam-progress">
           <div
-            className="h-full rounded-full bg-gradient-to-l from-accent to-accent-2 transition-[width] duration-300 ease-out"
+            className="exam-progress-fill"
             style={{ width: `${pct.toFixed(1)}%` }}
           />
         </div>
-        <button
-          type="button"
-          onClick={submit}
-          className="rounded-[10px] bg-accent px-6 py-2.5 text-[0.92rem] font-bold text-bg transition-all hover:-translate-y-px hover:bg-accent-2 hover:shadow-[var(--shadow-sm)]"
-        >
+        <button type="button" className="exam-submit" onClick={submit}>
           إنهاء وعرض النتيجة
         </button>
       </div>
 
       {/* questions */}
-      <div className="space-y-4">
+      <div>
         {data.mcq.map((q, i) => (
           <McqCard
             key={`mcq-${i}-${resetKey}`}
@@ -146,26 +139,20 @@ export default function Exam({
 
       {/* result */}
       {result && (
-        <div className="mt-8 rounded-[var(--radius-lg)] border-2 border-accent bg-surface p-5 text-center sm:p-8">
-          <h3 className="mb-2 font-display text-2xl font-bold text-accent sm:text-[1.6rem]">انتهى الامتحان!</h3>
-          <div className="my-4 font-mono text-4xl font-bold leading-none text-ink sm:text-5xl">
-            <span className={result.pass ? "text-ok" : "text-ko"}>{result.score}</span>
-            <span className="text-2xl text-ink-mute"> / {total}</span>
+        <div className="exam-result show">
+          <h3>انتهى الامتحان!</h3>
+          <div className="exam-result-score">
+            {result.score}
+            <span> / {total}</span>
           </div>
-          <p className="mx-auto mb-4 max-w-[520px] text-base text-ink-soft">{result.msg}</p>
+          <p>{result.msg}</p>
           <div
-            className={`mt-2 inline-block rounded-full px-6 py-2.5 font-display text-[1.05rem] font-bold text-white ${
-              result.pass ? "bg-ok" : "bg-ko"
-            }`}
+            className={`exam-result-grade ${result.pass ? "pass" : "fail"}`}
           >
             {result.label} ({result.pct}%)
           </div>
-          <div className="mt-6">
-            <button
-              type="button"
-              onClick={restart}
-              className="rounded-lg border border-line bg-transparent px-5 py-2 text-sm font-semibold text-ink-soft transition-all hover:border-accent hover:bg-accent hover:text-bg"
-            >
+          <div>
+            <button type="button" className="exam-restart" onClick={restart}>
               إعادة الامتحان
             </button>
           </div>
@@ -195,19 +182,15 @@ function McqCard({
   };
 
   return (
-    <div className="rounded-[var(--radius)] border border-line bg-surface px-4 py-6 sm:px-7">
-      <div className="mb-5 flex flex-wrap items-start justify-between gap-3 border-b border-dashed border-line pb-4">
-        <div className="flex min-w-0 flex-1 items-start gap-2.5 font-display text-[1.05rem] font-bold text-ink sm:text-[1.1rem]">
-          <span className="inline-grid h-[30px] w-[30px] flex-shrink-0 place-items-center rounded-lg bg-accent font-mono text-[0.82rem] text-bg">
-            {number}
-          </span>
-          <span className="min-w-0 break-words">{q.q}</span>
+    <div className="exam-card">
+      <div className="exam-card-head">
+        <div className="exam-card-title">
+          <span className="exam-card-num">{number}</span>
+          {q.q}
         </div>
-        <span className="shrink-0 rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[0.76rem] font-semibold uppercase tracking-[0.08em] text-accent-2">
-          {q.topic} · MCQ
-        </span>
+        <span className="exam-card-topic">{q.topic} · MCQ</span>
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="quiz-options">
         {q.opts.map((opt, oi) => {
           const showCorrect = answered && oi === q.correct;
           const showWrong = answered && oi === picked && oi !== q.correct;
@@ -218,37 +201,19 @@ function McqCard({
               disabled={answered}
               onClick={() => pick(oi)}
               className={[
-                "flex w-full items-start gap-3 rounded-[10px] border px-4 py-2.5 text-start text-[0.92rem] transition-all",
-                showCorrect
-                  ? "border-ok bg-ok/[0.18] font-semibold text-ink"
-                  : showWrong
-                    ? "border-ko bg-ko/[0.18] text-ink"
-                    : "border-line bg-bg text-ink-soft enabled:hover:-translate-x-0.5 enabled:hover:border-accent enabled:hover:bg-[var(--accent-soft)] enabled:hover:text-ink",
-              ].join(" ")}
+                "quiz-opt",
+                showCorrect ? "correct" : "",
+                showWrong ? "wrong" : "",
+              ].filter(Boolean).join(" ")}
             >
-              <span
-                className={[
-                  "grid h-6 w-6 flex-shrink-0 place-items-center rounded-md border font-mono text-xs font-bold",
-                  showCorrect
-                    ? "border-ok bg-ok text-white"
-                    : showWrong
-                      ? "border-ko bg-ko text-white"
-                      : "border-line bg-soft",
-                ].join(" ")}
-              >
-                {OPTION_LETTERS[oi]}
-              </span>
-              <span className="min-w-0 break-words">{opt}</span>
+              <span className="opt-letter">{OPTION_LETTERS[oi]}</span>
+              {opt}
             </button>
           );
         })}
       </div>
       {answered && (
-        <p
-          className={`mt-2.5 rounded-lg px-3.5 py-2.5 text-sm font-medium ${
-            isCorrect ? "bg-ok/10 text-ok" : "bg-ko/10 text-ko"
-          }`}
-        >
+        <p className={`quiz-feedback show ${isCorrect ? "ok" : "ko"}`}>
           {isCorrect
             ? q.ok ?? "✓ إجابة صحيحة"
             : q.ko ?? `✗ الإجابة الصحيحة هي: ${q.opts[q.correct]}`}
@@ -308,21 +273,18 @@ function CodingCard({
   };
 
   return (
-    <div className="rounded-[var(--radius)] border border-line bg-surface px-4 py-6 sm:px-7">
-      <div className="mb-5 flex flex-wrap items-start justify-between gap-3 border-b border-dashed border-line pb-4">
-        <div className="flex min-w-0 flex-1 items-start gap-2.5 font-display text-[1.05rem] font-bold text-ink sm:text-[1.1rem]">
-          <span className="inline-grid h-[30px] w-[30px] flex-shrink-0 place-items-center rounded-lg bg-accent font-mono text-[0.82rem] text-bg">
-            {number}
-          </span>
-          <span className="min-w-0 break-words">{q.prompt}</span>
+    <div className="exam-card">
+      <div className="exam-card-head">
+        <div className="exam-card-title">
+          <span className="exam-card-num">{number}</span>
+          {q.prompt}
         </div>
-        <span className="shrink-0 rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[0.76rem] font-semibold uppercase tracking-[0.08em] text-accent-2">
-          {q.topic} · سؤال برمجي
-        </span>
+        <span className="exam-card-topic">{q.topic} · سؤال برمجي</span>
       </div>
-      {q.hint && <p className="mb-2 text-sm text-ink-mute">💡 {q.hint}</p>}
-      <div className="grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
+      {q.hint && <p className="code-q-hint">💡 {q.hint}</p>}
+      <div className="code-q-editor">
         <textarea
+          className="code-q-textarea"
           dir="ltr"
           spellCheck={false}
           value={code}
@@ -333,53 +295,31 @@ function CodingCard({
               run();
             }
           }}
-          className="min-h-[140px] w-full resize-y bg-surface p-3 font-mono text-sm text-ink outline-none"
         />
-        <iframe ref={iframeRef} title="معاينة" className="min-h-[140px] w-full bg-white" />
+        <iframe ref={iframeRef} className="code-q-preview" title="معاينة" />
       </div>
-      <div className="mt-3 flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={run}
-          className="rounded-lg border border-line px-3 py-1.5 text-sm hover:bg-soft"
-        >
+      <div className="code-q-actions">
+        <button type="button" className="btn-run" onClick={run}>
           {ran ? "تم ✓" : "تشغيل"}
         </button>
-        <button
-          type="button"
-          onClick={check}
-          className="rounded-lg bg-accent px-3 py-1.5 text-sm font-semibold text-bg hover:opacity-90"
-        >
+        <button type="button" className="btn-check" onClick={check}>
           تحقق من الإجابة
         </button>
-        <button
-          type="button"
-          onClick={reveal}
-          className="rounded-lg border border-line px-3 py-1.5 text-sm hover:bg-soft"
-        >
+        <button type="button" className="btn-reveal" onClick={reveal}>
           إظهار الحل
         </button>
       </div>
       {feedback && (
-        <p
-          className={`mt-2.5 rounded-lg px-3.5 py-2.5 text-sm font-medium ${
-            feedback.ok ? "bg-ok/10 text-ok" : "bg-ko/10 text-ko"
-          }`}
-        >
+        <p className={`code-q-feedback show ${feedback.ok ? "ok" : "ko"}`}>
           {feedback.msg}
         </p>
       )}
-      {showSolution && (
-        <div className="mt-3">
-          <div className="mb-1 text-sm font-bold text-ink-mute">الحل المقترح:</div>
-          <pre
-            className="overflow-x-auto rounded-lg bg-code-bg p-3 text-sm text-code-fg"
-            dir="ltr"
-          >
-            <code>{q.solution}</code>
-          </pre>
-        </div>
-      )}
+      <div className={`code-q-solution${showSolution ? " show" : ""}`}>
+        <div className="code-q-solution-label">الحل المقترح:</div>
+        <pre dir="ltr">
+          <code>{q.solution}</code>
+        </pre>
+      </div>
     </div>
   );
 }

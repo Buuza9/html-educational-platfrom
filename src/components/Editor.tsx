@@ -43,28 +43,21 @@ export default function Editor({ title, defaultCode }: EditorProps) {
   };
 
   return (
-    <div className="my-8 overflow-hidden rounded-[var(--radius-app)] border border-line bg-surface shadow-[var(--shadow-md)]">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line bg-soft px-4 py-3.5 text-sm font-semibold text-ink-soft sm:px-5">
+    <div className="editor">
+      <div className="editor-head">
         <span>{title}</span>
-        <div className="flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={copy}
-            className="rounded-lg border border-line bg-transparent px-[1.1rem] py-2 text-[0.85rem] font-semibold text-ink-soft transition duration-200 hover:border-ink-mute hover:bg-bg hover:text-ink"
-          >
+        <div className="editor-actions">
+          <button type="button" className="btn-ghost copy-btn" onClick={copy}>
             {copyLabel}
           </button>
-          <button
-            type="button"
-            onClick={run}
-            className="rounded-lg bg-accent px-[1.1rem] py-2 text-[0.85rem] font-semibold text-white transition duration-200 hover:-translate-y-px hover:bg-ink hover:shadow-[var(--shadow-sm)]"
-          >
+          <button type="button" className="btn-primary run-btn" onClick={run}>
             {runLabel}
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:min-h-[280px] md:grid-cols-2">
+      <div className="editor-body">
         <textarea
+          className="editor-code"
           dir="ltr"
           spellCheck={false}
           value={code}
@@ -75,13 +68,8 @@ export default function Editor({ title, defaultCode }: EditorProps) {
               run();
             }
           }}
-          className="min-h-[200px] w-full resize-y bg-code-bg px-[1.15rem] py-4 text-start font-mono text-[0.88rem] leading-[1.7] text-code-fg outline-none md:min-h-[280px]"
         />
-        <iframe
-          ref={iframeRef}
-          title="معاينة"
-          className="min-h-[200px] w-full border-t border-line bg-white md:min-h-[280px] md:border-s md:border-t-0"
-        />
+        <iframe ref={iframeRef} className="editor-preview" title="معاينة" />
       </div>
     </div>
   );

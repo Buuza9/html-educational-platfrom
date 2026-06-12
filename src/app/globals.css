@@ -1,4 +1,9 @@
 @import "tailwindcss";
+/* Original site's stylesheet, imported into the low-priority `components`
+   layer so legacy component classes (.topbar, .lesson, .block, .quiz, .editor,
+   .tag-card, .tips, .sidebar, ...) render exactly as before, while our tokens,
+   fonts, and Tailwind utilities still win. */
+@import "./legacy.css" layer(components);
 
 /* Dark mode is driven by a data attribute on <html> (toggled in JS),
    not the OS preference, matching the legacy app. */

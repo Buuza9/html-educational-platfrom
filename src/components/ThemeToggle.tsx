@@ -36,9 +36,10 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
+      id="themeToggle"
       onClick={toggle}
       aria-label="تبديل المظهر"
-      className="inline-flex h-10 w-10 items-center justify-center rounded-[11px] border border-line bg-surface text-ink transition-all duration-200 hover:-translate-y-px hover:border-accent hover:bg-[var(--accent-soft)] hover:text-accent"
+      className="icon-btn"
     >
       {isDark ? (
         // Sun icon (shown in dark mode)

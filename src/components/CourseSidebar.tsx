@@ -10,8 +10,10 @@ import SidebarLink from "@/components/SidebarLink";
  */
 export default async function CourseSidebar({
   courseSlug,
+  className,
 }: {
   courseSlug: string;
+  className?: string;
 }) {
   const course = getCourse(courseSlug);
   if (!course) return null;
@@ -20,53 +22,35 @@ export default async function CourseSidebar({
   const completedSet = new Set(completed);
 
   return (
-    <nav className="flex flex-col gap-5">
-      <div className="flex items-center justify-between px-2">
-        <span className="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-ink-mute">
-          المحتوى
-        </span>
-        <span className="rounded-full bg-[var(--accent-soft)] px-2.5 py-[3px] text-[0.72rem] font-semibold text-accent">
+    <aside className={className ? `sidebar ${className}` : "sidebar"}>
+      <div className="sidebar-head">
+        <span className="sidebar-label">المحتوى</span>
+        <span className="sidebar-count">
           {course.lessons.length} درساً + امتحان
         </span>
       </div>
 
-      <ol className="flex flex-col gap-0.5">
-        {course.lessons.map((lesson) => {
-          const isDone = completedSet.has(lesson.slug);
-          return (
-            <li key={lesson.slug}>
-              <SidebarLink
-                href={`/courses/${courseSlug}/lessons/${lesson.slug}`}
-                number={lesson.number}
-                title={lesson.title}
-                isDone={isDone}
-              />
-            </li>
-          );
-        })}
+      <nav className="sidebar-nav">
+        {course.lessons.map((lesson) => (
+          <SidebarLink
+            key={lesson.slug}
+            href={`/courses/${courseSlug}/lessons/${lesson.slug}`}
+            number={lesson.number}
+            title={lesson.title}
+            isDone={completedSet.has(lesson.slug)}
+          />
+        ))}
 
-        <li>
-          <Link
-            href={`/courses/${courseSlug}/exam`}
-            className="mt-2.5 flex items-center gap-3 rounded-[10px] border border-[var(--c-second)] bg-[linear-gradient(135deg,var(--c-main),var(--c-second))] px-3.5 py-2.5 text-[0.92rem] font-bold text-white no-underline shadow-[var(--shadow-sm)] transition-all duration-150 hover:bg-[linear-gradient(135deg,var(--c-second),var(--c-main))] hover:text-white"
-          >
-            <span className="min-w-[22px] shrink-0 font-mono text-[0.9rem] font-semibold text-white/70">
-              ★
-            </span>
-            <span className="flex-1">الامتحان الشامل</span>
-          </Link>
-        </li>
-      </ol>
+        <Link href={`/courses/${courseSlug}/exam`} className="nav-link nav-exam">
+          <span className="nav-num">★</span>
+          <span>الامتحان الشامل</span>
+        </Link>
 
-      <div className="border-t border-line pt-3">
-        <Link
-          href="/"
-          className="flex items-center gap-3 rounded-[10px] px-3.5 py-2.5 text-[0.92rem] font-medium text-ink-mute no-underline transition-all duration-150 hover:bg-surface hover:text-ink"
-        >
+        <Link href="/" className="nav-link">
           <span>كل الدورات</span>
           <span aria-hidden="true">&larr;</span>
         </Link>
-      </div>
-    </nav>
+      </nav>
+    </aside>
   );
 }
