@@ -114,7 +114,7 @@ function Body() {
 
 const lesson: Lesson = {
   slug: "best",
-  number: 10,
+  number: 15,
   title: "Best Practices + الخصائص (Attributes)",
   lead: (
     <>
