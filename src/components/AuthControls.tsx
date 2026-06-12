@@ -10,10 +10,16 @@ export default function AuthControls() {
   return (
     <>
       <Show when="signed-out">
-        <Link href="/sign-in" className="btn-ghost">
+        <Link
+          href="/sign-in"
+          className="btn-ghost whitespace-nowrap px-3 py-1.5 text-[0.78rem] sm:px-4 sm:py-2 sm:text-[0.85rem]"
+        >
           تسجيل الدخول
         </Link>
-        <Link href="/sign-up" className="btn-primary">
+        <Link
+          href="/sign-up"
+          className="btn-primary whitespace-nowrap px-3 py-1.5 text-[0.78rem] sm:px-4 sm:py-2 sm:text-[0.85rem]"
+        >
           إنشاء حساب
         </Link>
       </Show>

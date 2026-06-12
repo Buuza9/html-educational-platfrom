@@ -8,17 +8,19 @@ import AuthControls from "@/components/AuthControls";
  */
 export default function TopBar() {
   return (
-    <header className="topbar">
-      <Link href="/" className="brand">
-        <div className="brand-mark" dir="ltr" aria-hidden>
+    <header className="topbar gap-2 px-3 sm:gap-4 sm:px-6">
+      <Link href="/" className="brand min-w-0">
+        <div className="brand-mark shrink-0" dir="ltr" aria-hidden>
           &lt;/&gt;
         </div>
-        <div className="brand-text">
-          <h1>تعلّم HTML و CSS</h1>
-          <span>منصة تفاعلية للمبتدئين</span>
+        <div className="brand-text hidden min-[400px]:block">
+          <h1 className="whitespace-nowrap text-[0.95rem] sm:text-[1.18rem]">
+            تعلّم HTML و CSS
+          </h1>
+          <span className="hidden sm:block">منصة تفاعلية للمبتدئين</span>
         </div>
       </Link>
-      <div className="topbar-tools">
+      <div className="topbar-tools gap-1.5 sm:gap-[0.6rem]">
         <AuthControls />
         <ThemeToggle />
       </div>
