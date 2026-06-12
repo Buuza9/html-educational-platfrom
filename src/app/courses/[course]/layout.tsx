@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import TopBar from "@/components/TopBar";
 import CourseSidebar from "@/components/CourseSidebar";
+import MobileCourseNav from "@/components/MobileCourseNav";
 import { getCourse } from "@/lib/content/courses";
 
 export default async function CourseLayout({
@@ -23,7 +24,12 @@ export default async function CourseLayout({
             <CourseSidebar courseSlug={course} />
           </div>
         </aside>
-        <main className="min-w-0 flex-1 px-6 pb-20 pt-10 sm:px-12">
+        <main className="min-w-0 flex-1 px-4 pb-20 pt-6 sm:px-6 lg:px-12 lg:pt-10">
+          <div className="mb-6 lg:hidden">
+            <MobileCourseNav>
+              <CourseSidebar courseSlug={course} />
+            </MobileCourseNav>
+          </div>
           {children}
         </main>
       </div>

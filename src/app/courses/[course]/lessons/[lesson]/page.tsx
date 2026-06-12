@@ -33,15 +33,15 @@ export default async function LessonPage({
   const initialCompleted = completed.includes(lesson.slug);
 
   return (
-    <article className="mx-auto w-full max-w-3xl py-2">
+    <article className="mx-auto w-full max-w-3xl px-4 py-2 sm:px-6">
       <header className="relative mb-8 border-b-2 border-line pb-6 after:absolute after:-bottom-0.5 after:end-0 after:h-0.5 after:w-20 after:bg-accent after:content-['']">
         <p className="mb-2.5 font-mono text-[0.78rem] font-semibold uppercase tracking-[0.15em] text-accent">
           الدرس {lesson.number}
         </p>
-        <h1 className="mb-2 font-display text-[clamp(1.8rem,3vw,2.4rem)] font-bold leading-[1.2] tracking-tight text-ink">
+        <h1 className="mb-2 font-display text-2xl font-bold leading-[1.2] tracking-tight text-ink sm:text-[clamp(1.8rem,3vw,2.4rem)]">
           {lesson.title}
         </h1>
-        <p className="text-[1.02rem] leading-[1.8] text-ink-soft">{lesson.lead}</p>
+        <p className="text-base leading-[1.8] text-ink-soft sm:text-[1.02rem]">{lesson.lead}</p>
       </header>
 
       <div className="mt-8">
@@ -65,14 +65,14 @@ export default async function LessonPage({
         initialCompleted={initialCompleted}
       />
 
-      <nav className="mt-12 flex items-center justify-between gap-4 border-t border-line pt-6">
+      <nav className="mt-12 flex flex-col items-stretch gap-4 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
         {prev ? (
           <Link
             href={`/courses/${course.slug}/lessons/${prev.slug}`}
             className="group flex flex-col items-start text-start"
           >
             <span className="text-xs text-ink-mute">الدرس السابق</span>
-            <span className="font-medium text-ink transition group-hover:text-accent">
+            <span className="break-words font-medium text-ink transition group-hover:text-accent">
               → {prev.title}
             </span>
           </Link>
@@ -86,7 +86,7 @@ export default async function LessonPage({
             className="group flex flex-col items-end text-end"
           >
             <span className="text-xs text-ink-mute">الدرس التالي</span>
-            <span className="font-medium text-ink transition group-hover:text-accent">
+            <span className="break-words font-medium text-ink transition group-hover:text-accent">
               {next.title} ←
             </span>
           </Link>

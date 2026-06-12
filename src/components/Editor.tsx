@@ -44,9 +44,9 @@ export default function Editor({ title, defaultCode }: EditorProps) {
 
   return (
     <div className="my-8 overflow-hidden rounded-[var(--radius-app)] border border-line bg-surface shadow-[var(--shadow-md)]">
-      <div className="flex items-center justify-between gap-3 border-b border-line bg-soft px-5 py-3.5 text-sm font-semibold text-ink-soft">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line bg-soft px-4 py-3.5 text-sm font-semibold text-ink-soft sm:px-5">
         <span>{title}</span>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <button
             type="button"
             onClick={copy}
@@ -63,7 +63,7 @@ export default function Editor({ title, defaultCode }: EditorProps) {
           </button>
         </div>
       </div>
-      <div className="grid min-h-[280px] grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:min-h-[280px] md:grid-cols-2">
         <textarea
           dir="ltr"
           spellCheck={false}
@@ -75,12 +75,12 @@ export default function Editor({ title, defaultCode }: EditorProps) {
               run();
             }
           }}
-          className="min-h-[280px] w-full resize-y bg-code-bg px-[1.15rem] py-4 text-start font-mono text-[0.88rem] leading-[1.7] text-code-fg outline-none"
+          className="min-h-[200px] w-full resize-y bg-code-bg px-[1.15rem] py-4 text-start font-mono text-[0.88rem] leading-[1.7] text-code-fg outline-none md:min-h-[280px]"
         />
         <iframe
           ref={iframeRef}
           title="معاينة"
-          className="min-h-[280px] w-full border-t border-line bg-white md:border-s md:border-t-0"
+          className="min-h-[200px] w-full border-t border-line bg-white md:min-h-[280px] md:border-s md:border-t-0"
         />
       </div>
     </div>

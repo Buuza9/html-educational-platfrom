@@ -13,7 +13,7 @@ export default function Quiz({ data }: { data: QuizData }) {
   if (!hasMcq && !hasCoding) return null;
 
   return (
-    <section className="my-8 rounded-[var(--radius)] border border-line bg-surface px-7 py-6">
+    <section className="my-8 rounded-[var(--radius)] border border-line bg-surface px-4 py-6 sm:px-7">
       <div className="mb-5 flex items-center gap-3 border-b border-dashed border-line pb-4">
         <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-[10px] bg-accent text-[1.05rem] text-bg">
           ؟
@@ -60,11 +60,11 @@ function McqItem({ q, index }: { q: MCQ; index: number }) {
 
   return (
     <div>
-      <div className="mb-3.5 flex items-center text-[0.98rem] font-semibold">
-        <span className="me-2 inline-grid h-[22px] w-[22px] place-items-center rounded-md bg-ink font-mono text-[0.72rem] text-bg">
+      <div className="mb-3.5 flex items-start text-[0.98rem] font-semibold">
+        <span className="me-2 mt-0.5 inline-grid h-[22px] w-[22px] flex-shrink-0 place-items-center rounded-md bg-ink font-mono text-[0.72rem] text-bg">
           {index + 1}
         </span>
-        <span>{q.q}</span>
+        <span className="min-w-0 break-words">{q.q}</span>
       </div>
       <div className="flex flex-col gap-2">
         {q.opts.map((opt, oi) => {
@@ -77,7 +77,7 @@ function McqItem({ q, index }: { q: MCQ; index: number }) {
               disabled={answered}
               onClick={() => setPicked(oi)}
               className={[
-                "flex w-full items-center gap-3 rounded-[10px] border px-4 py-2.5 text-start text-[0.92rem] transition-all",
+                "flex w-full items-start gap-3 rounded-[10px] border px-4 py-2.5 text-start text-[0.92rem] transition-all",
                 isCorrect
                   ? "border-ok bg-ok/[0.18] font-semibold text-ink"
                   : isWrongPick
@@ -97,7 +97,7 @@ function McqItem({ q, index }: { q: MCQ; index: number }) {
               >
                 {OPTION_LETTERS[oi]}
               </span>
-              <span>{opt}</span>
+              <span className="min-w-0 break-words">{opt}</span>
             </button>
           );
         })}
@@ -144,11 +144,11 @@ function CodingItem({ q, number }: { q: CodingQuestion; number: number }) {
 
   return (
     <div>
-      <div className="mb-2 flex items-center text-[0.98rem] font-semibold">
-        <span className="me-2 inline-grid h-[22px] w-[22px] place-items-center rounded-md bg-ink font-mono text-[0.72rem] text-bg">
+      <div className="mb-2 flex items-start text-[0.98rem] font-semibold">
+        <span className="me-2 mt-0.5 inline-grid h-[22px] w-[22px] flex-shrink-0 place-items-center rounded-md bg-ink font-mono text-[0.72rem] text-bg">
           {number}
         </span>
-        <span>{q.prompt}</span>
+        <span className="min-w-0 break-words">{q.prompt}</span>
       </div>
       {q.hint && <p className="mb-2 text-sm text-ink-mute">💡 {q.hint}</p>}
       <div className="grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
@@ -157,7 +157,7 @@ function CodingItem({ q, number }: { q: CodingQuestion; number: number }) {
           spellCheck={false}
           value={code}
           onChange={(e) => setCode(e.target.value)}
-          className="min-h-[140px] resize-y bg-surface p-3 font-mono text-sm text-ink outline-none"
+          className="min-h-[140px] w-full resize-y bg-surface p-3 font-mono text-sm text-ink outline-none"
         />
         <iframe ref={iframeRef} title="معاينة" className="min-h-[140px] w-full bg-white" />
       </div>

@@ -12,15 +12,17 @@ export default function AuthControls() {
       <Show when="signed-out">
         <Link
           href="/sign-in"
-          className="rounded-[10px] border border-line bg-surface px-[1rem] py-2 text-[0.85rem] font-semibold text-ink no-underline transition-all duration-200 hover:-translate-y-px hover:border-accent hover:bg-[var(--accent-soft)] hover:text-accent hover:no-underline"
+          className="flex min-h-[36px] items-center rounded-[10px] border border-line bg-surface px-3 py-2 text-[0.8rem] font-semibold text-ink no-underline transition-all duration-200 hover:-translate-y-px hover:border-accent hover:bg-[var(--accent-soft)] hover:text-accent hover:no-underline sm:px-[1rem] sm:text-[0.85rem]"
         >
-          تسجيل الدخول
+          <span className="sm:hidden">دخول</span>
+          <span className="hidden sm:inline">تسجيل الدخول</span>
         </Link>
         <Link
           href="/sign-up"
-          className="rounded-[10px] border border-transparent bg-accent px-[1rem] py-2 text-[0.85rem] font-semibold text-bg no-underline transition-all duration-200 hover:-translate-y-px hover:bg-ink hover:no-underline hover:shadow-[var(--shadow-sm)]"
+          className="flex min-h-[36px] items-center rounded-[10px] border border-transparent bg-accent px-3 py-2 text-[0.8rem] font-semibold text-bg no-underline transition-all duration-200 hover:-translate-y-px hover:bg-ink hover:no-underline hover:shadow-[var(--shadow-sm)] sm:px-[1rem] sm:text-[0.85rem]"
         >
-          إنشاء حساب
+          <span className="sm:hidden">حساب</span>
+          <span className="hidden sm:inline">إنشاء حساب</span>
         </Link>
       </Show>
       <Show when="signed-in">

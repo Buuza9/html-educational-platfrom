@@ -89,7 +89,7 @@ export default function Exam({
   return (
     <section className="my-8">
       {/* sticky score bar */}
-      <div className="sticky top-[calc(var(--topbar-h)+8px)] z-50 mb-6 flex flex-wrap items-center justify-between gap-4 rounded-[var(--radius)] border border-line bg-surface px-5 py-4 shadow-[var(--shadow-sm)]">
+      <div className="sticky top-[calc(var(--topbar-h)+8px)] z-50 mb-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-3 rounded-[var(--radius)] border border-line bg-surface px-4 py-4 shadow-[var(--shadow-sm)] sm:px-5">
         <div className="flex items-center gap-4 text-sm text-ink-soft">
           <span>
             الإجابات:{" "}
@@ -101,7 +101,7 @@ export default function Exam({
             <strong className="font-mono text-[1.05rem] text-ok">{correct}</strong>
           </span>
         </div>
-        <div className="h-2 min-w-[140px] flex-1 overflow-hidden rounded-full bg-soft">
+        <div className="order-last h-2 w-full overflow-hidden rounded-full bg-soft sm:order-none sm:w-auto sm:min-w-[140px] sm:flex-1">
           <div
             className="h-full rounded-full bg-gradient-to-l from-accent to-accent-2 transition-[width] duration-300 ease-out"
             style={{ width: `${pct.toFixed(1)}%` }}
@@ -146,9 +146,9 @@ export default function Exam({
 
       {/* result */}
       {result && (
-        <div className="mt-8 rounded-[var(--radius-lg)] border-2 border-accent bg-surface p-8 text-center">
-          <h3 className="mb-2 font-display text-[1.6rem] font-bold text-accent">انتهى الامتحان!</h3>
-          <div className="my-4 font-mono text-5xl font-bold leading-none text-ink">
+        <div className="mt-8 rounded-[var(--radius-lg)] border-2 border-accent bg-surface p-5 text-center sm:p-8">
+          <h3 className="mb-2 font-display text-2xl font-bold text-accent sm:text-[1.6rem]">انتهى الامتحان!</h3>
+          <div className="my-4 font-mono text-4xl font-bold leading-none text-ink sm:text-5xl">
             <span className={result.pass ? "text-ok" : "text-ko"}>{result.score}</span>
             <span className="text-2xl text-ink-mute"> / {total}</span>
           </div>
@@ -195,13 +195,13 @@ function McqCard({
   };
 
   return (
-    <div className="rounded-[var(--radius)] border border-line bg-surface px-7 py-6">
-      <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-dashed border-line pb-4">
-        <div className="flex items-center gap-2.5 font-display text-[1.1rem] font-bold text-ink">
-          <span className="inline-grid h-[30px] w-[30px] place-items-center rounded-lg bg-accent font-mono text-[0.82rem] text-bg">
+    <div className="rounded-[var(--radius)] border border-line bg-surface px-4 py-6 sm:px-7">
+      <div className="mb-5 flex flex-wrap items-start justify-between gap-3 border-b border-dashed border-line pb-4">
+        <div className="flex min-w-0 flex-1 items-start gap-2.5 font-display text-[1.05rem] font-bold text-ink sm:text-[1.1rem]">
+          <span className="inline-grid h-[30px] w-[30px] flex-shrink-0 place-items-center rounded-lg bg-accent font-mono text-[0.82rem] text-bg">
             {number}
           </span>
-          <span>{q.q}</span>
+          <span className="min-w-0 break-words">{q.q}</span>
         </div>
         <span className="shrink-0 rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[0.76rem] font-semibold uppercase tracking-[0.08em] text-accent-2">
           {q.topic} · MCQ
@@ -218,7 +218,7 @@ function McqCard({
               disabled={answered}
               onClick={() => pick(oi)}
               className={[
-                "flex w-full items-center gap-3 rounded-[10px] border px-4 py-2.5 text-start text-[0.92rem] transition-all",
+                "flex w-full items-start gap-3 rounded-[10px] border px-4 py-2.5 text-start text-[0.92rem] transition-all",
                 showCorrect
                   ? "border-ok bg-ok/[0.18] font-semibold text-ink"
                   : showWrong
@@ -238,7 +238,7 @@ function McqCard({
               >
                 {OPTION_LETTERS[oi]}
               </span>
-              <span>{opt}</span>
+              <span className="min-w-0 break-words">{opt}</span>
             </button>
           );
         })}
@@ -308,13 +308,13 @@ function CodingCard({
   };
 
   return (
-    <div className="rounded-[var(--radius)] border border-line bg-surface px-7 py-6">
-      <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-dashed border-line pb-4">
-        <div className="flex items-center gap-2.5 font-display text-[1.1rem] font-bold text-ink">
-          <span className="inline-grid h-[30px] w-[30px] place-items-center rounded-lg bg-accent font-mono text-[0.82rem] text-bg">
+    <div className="rounded-[var(--radius)] border border-line bg-surface px-4 py-6 sm:px-7">
+      <div className="mb-5 flex flex-wrap items-start justify-between gap-3 border-b border-dashed border-line pb-4">
+        <div className="flex min-w-0 flex-1 items-start gap-2.5 font-display text-[1.05rem] font-bold text-ink sm:text-[1.1rem]">
+          <span className="inline-grid h-[30px] w-[30px] flex-shrink-0 place-items-center rounded-lg bg-accent font-mono text-[0.82rem] text-bg">
             {number}
           </span>
-          <span>{q.prompt}</span>
+          <span className="min-w-0 break-words">{q.prompt}</span>
         </div>
         <span className="shrink-0 rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[0.76rem] font-semibold uppercase tracking-[0.08em] text-accent-2">
           {q.topic} · سؤال برمجي
@@ -333,7 +333,7 @@ function CodingCard({
               run();
             }
           }}
-          className="min-h-[140px] resize-y bg-surface p-3 font-mono text-sm text-ink outline-none"
+          className="min-h-[140px] w-full resize-y bg-surface p-3 font-mono text-sm text-ink outline-none"
         />
         <iframe ref={iframeRef} title="معاينة" className="min-h-[140px] w-full bg-white" />
       </div>

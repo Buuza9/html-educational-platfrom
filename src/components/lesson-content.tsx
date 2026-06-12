@@ -20,7 +20,7 @@ export function Bullet({ items }: { items: ReactNode[] }) {
     <ul className="my-2 space-y-2.5 text-ink-soft">
       {items.map((it, i) => (
         <li key={i} className="relative pe-0 ps-7">
-          <span className="absolute end-0 top-[0.65em] h-[7px] w-[7px] rounded-full bg-accent" />
+          <span className="absolute start-0 top-[0.65em] h-[7px] w-[7px] rounded-full bg-accent" />
           {it}
         </li>
       ))}
@@ -93,7 +93,7 @@ export function Tips({ items }: { items: ReactNode[] }) {
       <ul className="space-y-[0.45rem]">
         {items.map((it, i) => (
           <li key={i} className="relative pe-0 ps-[1.4rem] text-[0.94rem] text-ink-soft">
-            <span className="absolute end-0 font-bold text-accent">✓</span>
+            <span className="absolute start-0 font-bold text-accent">✓</span>
             {it}
           </li>
         ))}
