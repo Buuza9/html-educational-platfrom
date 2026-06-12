@@ -53,20 +53,22 @@ export default async function LessonPage({
 
       <LessonQuiz courseSlug={course.slug} lessonSlug={lesson.slug} />
 
-      <LessonCompleteButton
-        courseSlug={course.slug}
-        lessonSlug={lesson.slug}
-        initialCompleted={initialCompleted}
-      />
+      <div className="mt-8">
+        <LessonCompleteButton
+          courseSlug={course.slug}
+          lessonSlug={lesson.slug}
+          initialCompleted={initialCompleted}
+        />
+      </div>
 
-      <nav className="lesson-nav">
+      <nav className="lesson-nav mt-6 flex flex-col gap-4 border-t border-ink-mute/20 pt-6 sm:flex-row sm:items-start sm:justify-between">
         {prev ? (
           <Link
             href={`/courses/${course.slug}/lessons/${prev.slug}`}
-            className="lesson-nav-link prev"
+            className="lesson-nav-link prev flex min-w-0 flex-col items-start text-start"
           >
-            <span className="lesson-nav-label">الدرس السابق</span>
-            <span className="lesson-nav-title">→ {prev.title}</span>
+            <span className="lesson-nav-label text-xs text-ink-mute">الدرس السابق</span>
+            <span className="lesson-nav-title font-medium break-words">→ {prev.title}</span>
           </Link>
         ) : (
           <span />
@@ -75,18 +77,18 @@ export default async function LessonPage({
         {next ? (
           <Link
             href={`/courses/${course.slug}/lessons/${next.slug}`}
-            className="lesson-nav-link next"
+            className="lesson-nav-link next flex min-w-0 flex-col items-start text-start sm:items-end sm:text-end"
           >
-            <span className="lesson-nav-label">الدرس التالي</span>
-            <span className="lesson-nav-title">{next.title} ←</span>
+            <span className="lesson-nav-label text-xs text-ink-mute">الدرس التالي</span>
+            <span className="lesson-nav-title font-medium break-words">{next.title} ←</span>
           </Link>
         ) : (
           <Link
             href={`/courses/${course.slug}/exam`}
-            className="lesson-nav-link next"
+            className="lesson-nav-link next flex min-w-0 flex-col items-start text-start sm:items-end sm:text-end"
           >
-            <span className="lesson-nav-label">الخطوة التالية</span>
-            <span className="lesson-nav-title">الامتحان النهائي ←</span>
+            <span className="lesson-nav-label text-xs text-ink-mute">الخطوة التالية</span>
+            <span className="lesson-nav-title font-medium break-words">الامتحان النهائي ←</span>
           </Link>
         )}
       </nav>
