@@ -20,6 +20,13 @@ export const htmlExam: Exam = {
     { topic: 'دلالي', q: 'تاج المحتوى الأساسي للصفحة:', opts: ['<body>', '<main>', '<section>', '<content>'], correct: 1 },
     { topic: 'best', q: 'الفرق الأساسي بين id و class:', opts: ['لا يوجد فرق', 'id فريد، class يتكرر', 'class فريد، id يتكرر', 'كلاهما فريد'], correct: 1 },
     { topic: 'best', q: 'الأفضل لتنسيق الصفحة:', opts: ['align و bgcolor', 'CSS', 'JavaScript فقط', 'Word'], correct: 1 },
+    { topic: 'السمات', q: 'أي عبارة صحيحة عن id و class؟', opts: ['id يتكرر و class فريد', 'id فريد في الصفحة و class يمكن أن يتكرر', 'كلاهما يجب أن يكون فريداً', 'لا فرق بينهما'], correct: 1, ok: 'صحيح، id فريد لكل عنصر بينما class يُستخدم لمجموعة عناصر.', ko: 'تذكّر: id فريد، class قابل للتكرار.' },
+    { topic: 'السمات', q: 'السمة (attribute) العامة المتاحة لكل العناصر تقريباً والتي تخزّن نصّ تلميح يظهر عند المرور بالماوس:', opts: ['alt', 'title', 'name', 'value'], correct: 1, ok: 'نعم، title تظهر كتلميح عند الوقوف على العنصر.', ko: 'الإجابة هي title، وهي سمة عامة.' },
+    { topic: 'تعليقات', q: 'الصيغة الصحيحة لكتابة تعليق في HTML:', opts: ['// تعليق', '/* تعليق */', '<!-- تعليق -->', '# تعليق'], correct: 2, ok: 'أحسنت، التعليق يبدأ بـ <!-- وينتهي بـ -->.', ko: 'تعليق HTML يكون بين <!-- و -->.' },
+    { topic: 'تعليقات', q: 'لإظهار الرمز < كنصّ على الصفحة نستخدم الكيان:', opts: ['&lt;', '&gt;', '&amp;', '&quot;'], correct: 0, ok: 'صحيح، &lt; تعني less-than أي الرمز <.', ko: 'الرمز < يُكتب &lt; و > يُكتب &gt;.' },
+    { topic: 'كتلي/سطري', q: 'أي العناصر التالية عنصر كتلي (block) يأخذ سطراً كاملاً؟', opts: ['<span>', '<a>', '<div>', '<strong>'], correct: 2, ok: 'صحيح، <div> عنصر كتلي بينما <span> سطري.', ko: '<div> كتلي، أما <span> و <a> و <strong> فعناصر سطرية.' },
+    { topic: 'iframe', q: 'الخاصية التي تحدّد عنوان الصفحة المضمّنة داخل <iframe>:', opts: ['href', 'src', 'link', 'data'], correct: 1, ok: 'نعم، src تحدّد مصدر/عنوان المحتوى المضمّن.', ko: 'iframe يستخدم src لتحديد الصفحة المضمّنة.' },
+    { topic: 'meta', q: 'أي وسم meta يضبط عرض الصفحة على الجوال (responsive)؟', opts: ['<meta charset="UTF-8">', '<meta name="description">', '<meta name="viewport" content="width=device-width, initial-scale=1">', '<meta name="keywords">'], correct: 2, ok: 'أحسنت، viewport ضروري لجعل الصفحة متجاوبة على الجوال.', ko: 'الإجابة هي وسم viewport المسؤول عن العرض على الجوال.' },
   ],
   coding: [
     {
@@ -96,6 +103,25 @@ export const htmlExam: Exam = {
         return h !== -1 && n !== -1 && m !== -1 && f !== -1
           && h < n && n < m && m < f;
       }
+    },
+    {
+      topic: 'iframe',
+      prompt: 'ضمّن صفحة خارجية باستخدام <iframe> مصدره https://example.com مع عنوان وصفي (title) نصّه "مثال".',
+      hint: 'استخدم <iframe src="..." title="...">.',
+      starter: '',
+      solution: '<iframe src="https://example.com" title="مثال"></iframe>',
+      check: (c) => /<iframe\b[^>]*src\s*=\s*["'][^"']*example\.com[^"']*["'][^>]*title\s*=\s*["']\s*مثال\s*["']/i.test(c)
+        || /<iframe\b[^>]*title\s*=\s*["']\s*مثال\s*["'][^>]*src\s*=\s*["'][^"']*example\.com[^"']*["']/i.test(c)
+    },
+    {
+      topic: 'meta',
+      prompt: 'اكتب وسوم <meta> داخل <head>: ترميز UTF-8، و viewport متجاوب، ووصف (description) للصفحة.',
+      hint: 'ثلاثة وسوم: charset، name="viewport"، name="description".',
+      starter: '',
+      solution: '<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1">\n  <meta name="description" content="صفحتي التعليمية">\n</head>',
+      check: (c) => /<meta\b[^>]*charset\s*=\s*["']?utf-8["']?/i.test(c)
+        && /<meta\b[^>]*name\s*=\s*["']viewport["'][^>]*content\s*=\s*["'][^"']*width\s*=\s*device-width[^"']*["']/i.test(c)
+        && /<meta\b[^>]*name\s*=\s*["']description["'][^>]*content\s*=\s*["'][^"']+["']/i.test(c)
     },
   ],
 };

@@ -83,7 +83,7 @@ input[type="password"] {
       <Block title="الفئات الزائفة (Pseudo-classes)">
         <p>
           تستهدف <strong>حالة</strong> العنصر أو <strong>موقعه</strong> بين أشقائه،
-          وتُكتب بنقطتين <code>:</code>.
+          وتُكتب بنقطة واحدة <code>:</code>.
         </p>
         <Bullet
           items={[
@@ -110,7 +110,7 @@ li:nth-child(2) { background: #eee; }`}</CodeBlock>
 
       <Block title="العناصر الزائفة (Pseudo-elements)">
         <p>
-          تنشئ جزءاً <strong>افتراضياً</strong> داخل العنصر، وتُكتب بأربع نقاط{" "}
+          تنشئ جزءاً <strong>افتراضياً</strong> داخل العنصر، وتُكتب بنقطتين{" "}
           <code>::</code>. أشهرها <code>::before</code> و<code>::after</code>،
           ويجب أن تحملا الخاصّية <code>content</code>:
         </p>
